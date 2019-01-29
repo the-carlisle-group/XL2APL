@@ -1,7 +1,12 @@
  GetSheetFileNames←{
      ⍝ ⍺←→ >NET ZipArchive
+     OBSOLETE
+     ⎕USING←'System'
      e←⌷⍺.Entries
      n←e.FullName
      b←∨/¨'xl/worksheets/sheet'∘⍷¨n
-     b/n
+     s←b/e
+     s.FullName
+     Convert.ToInt32¨s.Length
+     Convert.ToInt32¨s.CompressedLength
  }

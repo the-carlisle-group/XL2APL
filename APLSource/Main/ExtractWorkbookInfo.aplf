@@ -1,12 +1,17 @@
  ExtractWorkbookInfo←{
      ⍝ ⍵ ←→ FQP of .xlsx file
-     ⍝   ←→ Space
-     fn←'c:\DataSets\RichardProctor\unicode.xlsx'
-     a←OpenExcelFile fn
+     ⍝   ←→ Space of usefull stuff
+     a←OpenExcelFile ⍵
      p←⎕NS''
-     p.FileName←fn
+     p.FileName←⍵
      p.(SheetNames SheetIds)←a GetSheetNames''
-     p.SheetFileNames←a GetSheetFileNames''
+     e←⌷a.Entries
+     n←e.FullName
+     b←∨/¨'xl/worksheets/sheet'∘⍷¨n
+     s←b/e
+     p.SheetFileNames←s.FullName
+     p.Lengths←Convert.ToInt32¨s.Length
+     p.CompressedLengths←Convert.ToInt32¨s.CompressedLength
      _←Dispose a
      p
  }

@@ -1,0 +1,14 @@
+ RunTests←{
+     run←{
+         b←##.Tests⍎⍵,' 0'
+         ⎕←⍵,': ',b⊃'Passed' '*** Failed ***'
+         b
+     }
+     f←'T'##.Tests.⎕NL-3
+     b←run¨f
+     tf←+/b
+     r←⊂'Tests run: ',⍕≢b
+     r,←⊂'Passed: ',⍕+/~b
+     r,←⊂'Failed: ',⍕+/b
+     ⊃r
+ }
