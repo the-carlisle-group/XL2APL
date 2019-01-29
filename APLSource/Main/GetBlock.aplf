@@ -1,0 +1,8 @@
+ GetBlock←{
+     p←⍵
+     s←p.BlockSize⌊p.Length-p.Start
+     c←p.SheetData[p.Start+⍳s]
+     n←6+¯1↑⍸'</row>'⍷c
+     p.Start+←n
+     n↑c
+ }

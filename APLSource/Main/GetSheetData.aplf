@@ -1,0 +1,33 @@
+ GetSheetData←{
+     ⍝ ⍺ ←→ Workbook info space
+     ⍝ ⍵ ←→ sheet name [header rows] [rows to read]
+     sn hr rr←3↑(⊆⍵),0 0
+     i←⍺.SheetNames⍳⊂sn
+     f←i⊃⍺.SheetFileNames
+     z←OpenExcelFile ⍺.FileName
+     s←⍺ GetSharedStrings z
+     t←z ReadZipFile f
+     _←Dispose z
+     i←11+⍸'<sheetData>'⍷t
+     j←⍸'</sheetData>'⍷t
+     t←i↓j↑t
+     p←⎕NS''
+     p.WorkbookInfo←⍺
+     p.HeaderRows←hr
+     p.RowsToRead←rr
+     p.FooterRows←0
+     p.Length←≢t
+     p.Start←0
+     p.Data←⍬
+     p.SheetData←t
+     p.BlockSize←2*23
+     p.Blocks←0
+     p.Rows←⍬
+     p.Columns←⍬
+     _←ProcessBlocks p
+     1=p.Blocks:p.Header p.Data
+     _←p.⎕EX'SheetData'
+     u←{⍵[⍋⍵]}∪∊p.Columns
+     c←p AssembleColumn¨u
+     p.Header c
+ }

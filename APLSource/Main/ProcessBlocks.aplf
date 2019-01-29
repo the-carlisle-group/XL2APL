@@ -1,0 +1,11 @@
+ ProcessBlocks←{
+     p←⍵
+     b←GetBlock p
+     i d←p ProcessBlock b
+     p.Data,←d
+     p.Blocks+←1
+     p.Columns,←⊂i
+     p.Rows,←≢↑d
+     p.Start=p.Length:0
+     ∇ p
+ }

@@ -1,0 +1,6 @@
+ ExtractEntireWorkbook←{
+     p←ExtractWorkbookInfo ⍵
+     p.Sheet
+     sd←p∘GetSheetData¨  ⍝ Get all sheet data
+     sn sd                   ⍝ Sheet names/data
+ }

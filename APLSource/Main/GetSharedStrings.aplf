@@ -1,0 +1,13 @@
+ GetSharedStrings←{
+     ⍝ ⍺ ←→ Excel Info Space
+     ⍝ ⍵ ←→ Excel ZipArchive
+     2=⍺.⎕NC'SharedStrings':⍺.SharedStrings
+     f←'xl/sharedStrings.xml'
+     t←⍵ ReadZipFile f
+     m←⎕XML t
+     s←m[;1]∊⊂'si'
+     t←m[;1]∊⊂,'t'
+     v←t/m[;2]
+     (+/s)=+/t:⍺.SharedStrings←v
+     1:⍺.SharedStrings←↑¨,/¨(1+(⍸s)⍸(⍸t))⊆v
+ }

@@ -1,0 +1,4 @@
+ z←Dispose x
+⍝ Dispose .Net object
+ x.Dispose
+ z←0

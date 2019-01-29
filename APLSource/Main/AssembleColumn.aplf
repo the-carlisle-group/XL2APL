@@ -1,0 +1,10 @@
+ AssembleColumn←{
+     ⍝ ⍵ ←→ Column Index
+     p←⍺
+     k←⍸⍵=∊p.Columns
+     h←⍵∊¨p.Columns
+     b←p.Rows/h
+     v←p.Data[k]
+     w←⌈/{(↑⌽⍴⍵)}¨v
+     b⍀↑⍪/w↑[1]¨v
+ }

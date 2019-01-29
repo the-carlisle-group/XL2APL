@@ -1,0 +1,29 @@
+ ProcessBlock←{
+     p←⍺
+     ss←p.WorkbookInfo.SharedStrings
+     m←⎕XML ⍵
+     nr←+/m[;0]=0                    ⍝ Number of ross
+     vi←⍸m[;1]∊⊂,'v'                 ⍝ Value indices
+     ci←vi{⍵[⍵⍸⍺]}⍸m[;1]∊⊂,'c'       ⍝ Corresponding Cell indices
+     v←m[vi;2]                       ⍝ Values
+     ca←m[ci;3]                      ⍝ Cell attributs (only for cells with values
+     ai←(≢¨ca)/⍳≢ca
+     an av←↓⍉↑⍪/ca                   ⍝ Normalized cell attributes
+     a←(an∊⊂,'r')/av                 ⍝ Cell address
+     si←ai[⍸(an∊⊂,'t')∧av∊⊂,'s']     ⍝ Shared String
+     v[si]←ss[1⊃⎕VFI,' ',⊃v[si]]
+     rn←1⊃⎕VFI' '@{⍵∊⎕A},⊃a
+     ri←{⍵-⌊/⍵}rn
+     ch←a~¨⊂⎕D
+     xc←{⍵,,⍵∘.,⍵},¨⎕A                ⍝ (Mostly) All Excel Column Headers
+     ci←xc⍳ch                         ⍝ Column index
+     uc←{⍵[⍋⍵]}∪ci                    ⍝ Unique column numbers in order
+     rc←uc⍳ci                         ⍝ Relative column index
+     j←↓⍉⊃ri rc                       ⍝ Scatter points
+     d←(nr,≢uc)⍴⊂''                   ⍝ Default
+     d[j]←v                           ⍝ Scatter point
+     p.Blocks≠0:uc(⊃¨↓⍉d)
+     h←p.HeaderRows
+     p.Header←h↑d
+     uc(⊃¨↓⍉h↓d)                      ⍝ Column Indices , Inverted Data
+ }
