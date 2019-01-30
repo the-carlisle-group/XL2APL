@@ -1,7 +1,7 @@
  TestGetSheetData←{
      pf←##.AcreConfig.ProjectFolder
      fn←pf,'Assets/Development/TestFiles/Baseball.xlsx'
-     p←##.Main.ExtractWorkbookInfo fn
+     p←##.Main.GetWorkbookInfo fn
      h d←p ##.Main.GetSheetData'Batting' 1
      104324≢≢↑d:1
      (5↑,h)≢'playerID' 'yearID' 'stint' 'teamID' 'lgID':1

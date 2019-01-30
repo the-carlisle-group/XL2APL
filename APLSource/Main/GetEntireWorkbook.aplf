@@ -1,0 +1,8 @@
+ GetEntireWorkbook←{
+     ⍝ ⍵ ←→ .xlsx File Name
+     ⍝ ← ←→ (SheetName, Header, Values) (...) (...)
+     p←GetWorkbookInfo ⍵
+     sn←p.SheetNames
+     sd←p∘GetSheetData¨{⍵ 1}¨sn
+     sn{(⊂⍺),⍵}¨sd
+ }

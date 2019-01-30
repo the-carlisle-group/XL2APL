@@ -1,0 +1,8 @@
+ TestGetEntireWookbook←{
+     pf←##.AcreConfig.ProjectFolder
+     fn←pf,'Assets/Development/TestFiles/Baseball.xlsx'
+     v←##.Main.GetEntireWorkbook fn
+     'People' 'Pitching' 'Batting'≢0⊃¨v:1
+     19370 45806 104324≢{≢↑2⊃⍵}¨v:1
+     0
+ }

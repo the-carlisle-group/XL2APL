@@ -1,4 +1,4 @@
- ExtractWorkbookInfo←{
+ GetWorkbookInfo←{
      ⍝ ⍵ ←→ FQP of .xlsx file
      ⍝   ←→ Space of usefull stuff
      a←OpenExcelFile ⍵
