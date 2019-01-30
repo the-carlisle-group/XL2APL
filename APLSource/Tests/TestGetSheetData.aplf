@@ -6,5 +6,7 @@
      104324≢≢↑d:1
      (5↑,h)≢'playerID' 'yearID' 'stint' 'teamID' 'lgID':1
      (¯5↑,h)≢'IBB' 'HBP' 'SH' 'SF' 'GIDP':1
+     (,¨2↑1↑¨d)≢'abercda01' '1871':1
+     (,¨2↑¯1↑¨d)≢'zychto01 ' '2017':1
      0
  }

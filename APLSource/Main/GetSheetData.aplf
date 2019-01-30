@@ -20,7 +20,7 @@
      p.Start←0
      p.Data←⍬
      p.SheetData←t
-     p.BlockSize←2*23
+     p.BlockSize←2*22
      p.Blocks←0
      p.Rows←⍬
      p.Columns←⍬

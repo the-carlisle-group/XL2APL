@@ -7,5 +7,6 @@
      p.Columns,←⊂i
      p.Rows,←≢↑d
      p.Start=p.Length:0
+     (p.RowsToRead≠0)∧p.RowsToRead≤+/p.Rows:0
      ∇ p
  }

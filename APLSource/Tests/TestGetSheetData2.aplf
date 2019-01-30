@@ -1,0 +1,12 @@
+ TestGetSheetData2←{
+     pf←##.AcreConfig.ProjectFolder
+     fn←pf,'Assets/Development/TestFiles/Baseball.xlsx'
+     p←##.Main.ExtractWorkbookInfo fn
+     h d←p ##.Main.GetSheetData'People' 1 100
+     5879≢≢↑d:1
+     h d←p ##.Main.GetSheetData'People' 1 10000
+     11664≢≢↑d:1
+     h d←p ##.Main.GetSheetData'People' 1
+     19370≢≢↑d:1
+     0
+ }
