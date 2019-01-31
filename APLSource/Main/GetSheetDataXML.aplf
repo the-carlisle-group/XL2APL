@@ -1,0 +1,6 @@
+ GetSheetDataXML←{
+     t←⍺ ReadZipFile ⍵
+     i←11+⍸'<sheetData>'⍷t
+     j←⍸'</sheetData>'⍷t
+     i↓j↑t
+ }

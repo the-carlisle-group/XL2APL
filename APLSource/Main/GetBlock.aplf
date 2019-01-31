@@ -1,6 +1,7 @@
  GetBlock←{
      p←⍵
-     s←p.BlockSize⌊p.Length-p.Start
+     bs←p.WorkbookInfo.BlockSize
+     s←bs⌊p.Length-p.Start
      c←p.SheetData[p.Start+⍳s]
      n←6+¯1↑⍸'</row>'⍷c
      p.Start+←n

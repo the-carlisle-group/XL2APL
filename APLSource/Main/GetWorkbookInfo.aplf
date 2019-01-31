@@ -4,7 +4,7 @@
      a←OpenExcelFile ⍵
      p←⎕NS''
      p.FileName←⍵
-     p.(SheetNames SheetIds)←a GetSheetNames''
+     p.(SheetNames SheetIds RangeNames RangeAddresses)←a GetSheetNames''
      e←⌷a.Entries
      n←e.FullName
      b←∨/¨'xl/worksheets/sheet'∘⍷¨n
@@ -12,6 +12,10 @@
      p.SheetFileNames←s.FullName
      p.Lengths←Convert.ToInt32¨s.Length
      p.CompressedLengths←Convert.ToInt32¨s.CompressedLength
+     p.BlockSize←2*22
+     p.HeaderRows←1
+     p.FooterRows←0
+     p.RowsToRead←0
      _←Dispose a
      p
  }

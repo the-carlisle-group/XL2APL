@@ -7,6 +7,7 @@
      p.Columns,←⊂i
      p.Rows,←≢↑d
      p.Start=p.Length:0
-     (p.RowsToRead≠0)∧p.RowsToRead≤+/p.Rows:0
+     r←p.WorkbookInfo.RowsToRead
+     (r≠0)∧r≤+/p.Rows:0
      ∇ p
  }

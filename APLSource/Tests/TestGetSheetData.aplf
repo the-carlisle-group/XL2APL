@@ -2,7 +2,7 @@
      pf←##.AcreConfig.ProjectFolder
      fn←pf,'Assets/Development/TestFiles/Baseball.xlsx'
      p←##.Main.GetWorkbookInfo fn
-     h d←p ##.Main.GetSheetData'Batting' 1
+     h d←p ##.Main.GetSheetData'Batting'
      104324≢≢↑d:1
      (5↑,h)≢'playerID' 'yearID' 'stint' 'teamID' 'lgID':1
      (¯5↑,h)≢'IBB' 'HBP' 'SH' 'SF' 'GIDP':1

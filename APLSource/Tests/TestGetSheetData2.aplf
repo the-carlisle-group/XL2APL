@@ -2,11 +2,14 @@
      pf←##.AcreConfig.ProjectFolder
      fn←pf,'Assets/Development/TestFiles/Baseball.xlsx'
      p←##.Main.GetWorkbookInfo fn
-     h d←p ##.Main.GetSheetData'People' 1 100
+     p.RowsToRead←100
+     h d←p ##.Main.GetSheetData'People'
      5879≢≢↑d:1
-     h d←p ##.Main.GetSheetData'People' 1 10000
+     p.RowsToRead←10000
+     h d←p ##.Main.GetSheetData'People'
      11664≢≢↑d:1
-     h d←p ##.Main.GetSheetData'People' 1
+     p.RowsToRead←0
+     h d←p ##.Main.GetSheetData'People'
      19370≢≢↑d:1
      0
  }

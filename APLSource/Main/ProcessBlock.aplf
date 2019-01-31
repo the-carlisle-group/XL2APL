@@ -1,6 +1,7 @@
  ProcessBlock←{
      p←⍺
-     ss←p.WorkbookInfo.SharedStrings
+     wi←p.WorkbookInfo
+     ss←wi.SharedStrings
      m←⎕XML ⍵
      nr←+/m[;0]=0                    ⍝ Number of ross
      vi←⍸m[;1]∊⊂,'v'                 ⍝ Value indices
@@ -23,7 +24,7 @@
      d←(nr,≢uc)⍴⊂''                   ⍝ Default
      d[j]←v                           ⍝ Scatter point
      p.Blocks≠0:uc(⊃¨↓⍉d)
-     h←p.HeaderRows
+     h←wi.HeaderRows
      p.Header←h↑d
      uc(⊃¨↓⍉h↓d)                      ⍝ Column Indices , Inverted Data
  }
