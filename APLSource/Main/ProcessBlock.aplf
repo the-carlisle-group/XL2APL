@@ -14,7 +14,7 @@
      si←ai[⍸(an∊⊂,'t')∧av∊⊂,'s']     ⍝ Shared String
      v[si]←ss[1⊃⎕VFI,' ',⊃v[si]]
      rn←1⊃⎕VFI' '@{⍵∊⎕A},⊃a
-     ri←{⍵-⌊/⍵}rn
+     ri←(∪rn)⍳rn
      ch←a~¨⊂⎕D
      xc←{⍵,,⍵∘.,⍵},¨⎕A                ⍝ (Mostly) All Excel Column Headers
      ci←xc⍳ch                         ⍝ Column index

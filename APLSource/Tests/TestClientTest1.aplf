@@ -1,0 +1,8 @@
+ TestClientTest1←{
+     pf←##.AcreConfig.ProjectFolder
+     fn←pf,'Assets/Development/TestFiles/ClientTest1.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     h d←p ##.Main.GetSheetData'clienttest1'
+
+     0
+ }

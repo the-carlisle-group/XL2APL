@@ -1,0 +1,9 @@
+ TestEmptyRows←{
+     pf←##.AcreConfig.ProjectFolder
+     fn←pf,'Assets/Development/TestFiles/EmptyRows.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     h d←p ##.Main.GetSheetData'Sheet1'
+     4≠≢d:1
+     4≠≢↑d:1
+     0
+ }
