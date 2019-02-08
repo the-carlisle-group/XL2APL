@@ -2,8 +2,8 @@
      ⍝ ⍺ ←→ .NET ZipArchive
      ⍝ ⍵ ←→ .NET Entry FullName
      ⎕USING←'System'
-     c←⌷⍺.Entries
-     e←(c.FullName⍳⊂⍵)⊃c
+     e←⍺.GetEntry⊂⍵
+     e=⎕NULL:''
      l←Convert.ToInt32 e.Length
      s←e.Open
      b←Array.CreateInstance Byte l

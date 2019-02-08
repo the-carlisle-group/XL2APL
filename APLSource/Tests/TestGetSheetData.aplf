@@ -1,9 +1,8 @@
  TestGetSheetData←{
-     pf←##.AcreConfig.ProjectFolder
-     fn←pf,'Assets/Development/TestFiles/Baseball.xlsx'
+     fn←GetTestFileFQP'Baseball.xlsx'
      p←##.Main.GetWorkbookInfo fn
      h d←p ##.Main.GetSheetData'Batting'
-     104324≢≢↑d:1
+     104324≢≢⊃d:1
      (5↑,h)≢'playerID' 'yearID' 'stint' 'teamID' 'lgID':1
      (¯5↑,h)≢'IBB' 'HBP' 'SH' 'SF' 'GIDP':1
      (,¨2↑1↑¨d)≢'abercda01' '1871':1

@@ -1,0 +1,10 @@
+ TestReorderedSheets←{
+     fn←GetTestFileFQP'ReorderedSheets.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     p.HeaderRows←0
+     h d←p ##.Main.GetSheetData'Four'
+     (⊃d)≢↑'This' 'is' 'Four':1
+     h d←p ##.Main.GetSheetData'Five'
+     (⊃d)≢↑'This' 'is' 'Five':1
+     0
+ }

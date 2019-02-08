@@ -4,14 +4,19 @@
      a←OpenExcelFile ⍵
      p←⎕NS''
      p.FileName←⍵
-     p.(SheetNames SheetIds RangeNames RangeAddresses)←a GetSheetNames''
-     e←⌷a.Entries
-     n←e.FullName
-     b←∨/¨'xl/worksheets/sheet'∘⍷¨n
-     s←b/e
-     p.SheetFileNames←s.FullName
-     p.Lengths←Convert.ToInt32¨s.Length
-     p.CompressedLengths←Convert.ToInt32¨s.CompressedLength
+     get←{0=≢⍵:'' ⋄ ⍺∘{(⍵[;0]⍳⊂⍺)⊃⍵[;1]}¨⍵}
+     m←⎕XML a ReadZipFile'xl/workbook.xml'
+     at←m[⍸m[;1]∊⊂'sheet';3]
+     p.SheetNames←'name'get at
+     id←3↓¨'r:id'get at
+     fn←'xl/worksheets/sheet'∘,¨id,¨⊂'.xml'
+     p.SheetFileNames←fn
+     k←⍸m[;1]∊⊂'definedName'
+     p.RangetNames←'name'get m[k;3]
+     p.RangeAddresses←m[k;2]
+     se←{⍵[⍵.FullName⍳fn]}⌷a.Entries
+     p.Lengths←Convert.ToInt32¨se.Length
+     p.CompressedLengths←Convert.ToInt32¨se.CompressedLength
      p.BlockSize←2*22
      p.HeaderRows←1
      p.FooterRows←0

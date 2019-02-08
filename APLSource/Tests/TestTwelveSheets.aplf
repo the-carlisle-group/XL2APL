@@ -1,0 +1,12 @@
+ TestTwelveSheets←{
+     fn←GetTestFileFQP'TwelveSheets.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     p.HeaderRows←0
+     h d←p ##.Main.GetSheetData'Twelve'
+     (⊃d)≢↑'This' 'is' 'Twelve':1
+     h d←p ##.Main.GetSheetData'Seven'
+     (⊃d)≢↑'This' 'is' 'Seven':1
+     h d←p ##.Main.GetSheetData'One'
+     (⊃d)≢↑'This' 'is' 'One':1
+     0
+ }

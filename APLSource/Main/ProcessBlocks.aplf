@@ -1,11 +1,12 @@
  ProcessBlocks←{
      p←⍵
      b←GetBlock p
+     0=≢b:0
      i d←p ProcessBlock b
      p.Data,←d
      p.Blocks+←1
      p.Columns,←⊂i
-     p.Rows,←≢↑d
+     p.Rows,←≢⊃d
      p.Start=p.Length:0
      r←p.WorkbookInfo.RowsToRead
      (r≠0)∧r≤+/p.Rows:0

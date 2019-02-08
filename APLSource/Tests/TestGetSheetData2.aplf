@@ -1,15 +1,14 @@
  TestGetSheetData2←{
-     pf←##.AcreConfig.ProjectFolder
-     fn←pf,'Assets/Development/TestFiles/Baseball.xlsx'
+     fn←GetTestFileFQP'Baseball.xlsx'
      p←##.Main.GetWorkbookInfo fn
      p.RowsToRead←100
      h d←p ##.Main.GetSheetData'People'
-     5879≢≢↑d:1
+     5879≢≢⊃d:1
      p.RowsToRead←10000
      h d←p ##.Main.GetSheetData'People'
-     11664≢≢↑d:1
+     11664≢≢⊃d:1
      p.RowsToRead←0
      h d←p ##.Main.GetSheetData'People'
-     19370≢≢↑d:1
+     19370≢≢⊃d:1
      0
  }

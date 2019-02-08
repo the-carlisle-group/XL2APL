@@ -4,6 +4,7 @@
      s←bs⌊p.Length-p.Start
      c←p.SheetData[p.Start+⍳s]
      n←6+¯1↑⍸'</row>'⍷c
+     n=6:''
      p.Start+←n
      n↑c
  }

@@ -1,6 +1,5 @@
  TestClientTest1←{
-     pf←##.AcreConfig.ProjectFolder
-     fn←pf,'Assets/Development/TestFiles/ClientTest1.xlsx'
+     fn←GetTestFileFQP'ClientTest1.xlsx'
      p←##.Main.GetWorkbookInfo fn
      h d←p ##.Main.GetSheetData'clienttest1'
      ~(⎕UCS 13)∊(4⊃d)[4;]:1

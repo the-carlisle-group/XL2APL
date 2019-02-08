@@ -4,6 +4,7 @@
      2=⍺.⎕NC'SharedStrings':⍺.SharedStrings
      f←'xl/sharedStrings.xml'
      t←⍵ ReadZipFile f
+     0=≢t:⍺.SharedStrings←''
      m←(⎕XML⍠'Whitespace' 'Preserve')t
      s←m[;1]∊⊂'si'
      t←m[;1]∊⊂,'t'

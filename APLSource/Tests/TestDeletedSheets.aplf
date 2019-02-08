@@ -1,0 +1,8 @@
+ TestDeletedSheets←{
+     fn←GetTestFileFQP'DeletedSheet.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     p.HeaderRows←0
+     h d←p ##.Main.GetSheetData'Four'
+     (⊃d)≢↑'This' 'is' 'Four':1
+     0
+ }

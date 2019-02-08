@@ -1,9 +1,7 @@
  TestGetWorkbookInfo←{
-     pf←##.AcreConfig.ProjectFolder
-     fn←pf,'Assets/Development/TestFiles/Baseball.xlsx'
+     fn←GetTestFileFQP'Baseball.xlsx'
      p←##.Main.GetWorkbookInfo fn
      p.SheetNames≢'People' 'Pitching' 'Batting':1
-     p.SheetIds≢,¨'321':1
      p.Lengths≢14066704 38639358 65534268:1
      p.CompressedLengths≢2374888 6401149 9659412:1
      0
