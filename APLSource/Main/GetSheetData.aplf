@@ -8,17 +8,19 @@
      _←⍺ GetSharedStrings z
      p←⎕NS''
      p.WorkbookInfo←⍺
+     p.SheetName←sn
      p.SheetData←z GetSheetDataXML f
      _←Dispose z
      p.Length←≢p.SheetData
      p.(Start Blocks)←0
-     p.(Data Rows Columns)←⊂⍬
+     p.(Data Rows Columns Header)←⊂⍬
+     _←GetColumnFormatCodes p
      _←ProcessBlocks p
-     0=p.Blocks:'' ''
-     1=p.Blocks:p.Header p.Data
+     0=p.Blocks:p
      _←p.⎕EX'SheetData'
+     1=p.Blocks:p
      u←{⍵[⍋⍵]}∪∊p.Columns
-     c←p AssembleColumn¨u
-     h←(u∊↑p.Columns)\p.Header
-     h c
+     p.Data←p AssembleColumn¨u
+     p.Header←(u∊↑p.Columns)\p.Header
+     p
  }

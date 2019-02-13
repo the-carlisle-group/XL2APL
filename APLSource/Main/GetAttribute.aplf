@@ -1,0 +1,6 @@
+ GetAttribute←{
+     ⍝ ⍺ ←→ ⎕XML matrix
+     ⍝ ⍵ ←→ attribute name
+     0=≢⍺:''
+     ⍵∘{(⍵[;0]⍳⊂,⍺)⊃⍵[;1],⊂''}¨⍺[;3]
+ }

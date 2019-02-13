@@ -2,13 +2,16 @@
      fn←GetTestFileFQP'Baseball.xlsx'
      p←##.Main.GetWorkbookInfo fn
      p.RowsToRead←100
-     h d←p ##.Main.GetSheetData'People'
+     r←p ##.Main.GetSheetData'People'
+     h d←r.Header r.Data
      5879≢≢⊃d:1
      p.RowsToRead←10000
-     h d←p ##.Main.GetSheetData'People'
+     r←p ##.Main.GetSheetData'People'
+     h d←r.Header r.Data
      11664≢≢⊃d:1
      p.RowsToRead←0
-     h d←p ##.Main.GetSheetData'People'
+     r←p ##.Main.GetSheetData'People'
+     h d←r.Header r.Data
      19370≢≢⊃d:1
      0
  }

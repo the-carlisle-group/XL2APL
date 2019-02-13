@@ -1,0 +1,15 @@
+ GetColumnFormatCodes←{
+     wi←⍵.WorkbookInfo
+     h←wi.HeaderRows
+     t←{((2*19)⌊≢⍵)↑⍵}⍵.SheetData
+     p←(+\'<row '⍷t)⊆t
+     0=≢p:0
+     m←{(⍵[;1]∊⊂,'c')⌿⍵}⎕XML h⊃p
+     r s t←m∘GetAttribute¨'rst'
+     c←wi.StyleFormatCodeID
+     fc←(c,⊂,'0')[(⍕¨⍳≢c)⍳s]
+     j←wi.FormatCodeID⍳fc
+     ⍵.FormatCode←wi.FormatCode[j]
+     ⍵.IsString←t∊⊂,'s'
+     0
+ }

@@ -1,0 +1,13 @@
+ GetFormatCodes←{
+     ⍝ ⍺ ←→  Zip archive
+     toNum←{1⊃⎕VFI,' ',↑⍵}
+     get←{0=≢⍵:'' ⋄ ⍺∘{(⍵[;0]⍳⊂⍺)⊃⍵[;1]}¨⍵}
+     x←⍺ ReadZipFile'xl/styles.xml'
+     m←{(⍵[;0]=1)⌿⍵}⎕XML x GetElement'cellXfs'
+     ⍵.StyleFormatCodeID←'numFmtId'get m[;3]
+     m←{(⍵[;0]=1)⌿⍵}⎕XML x GetElement'numFmts'
+     si sc←GetStandardFormatCodes 0
+     ⍵.FormatCode←sc,⍨'formatCode'get m[;3]
+     ⍵.FormatCodeID←si,⍨'numFmtId'get m[;3]
+     0
+ }

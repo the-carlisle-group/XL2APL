@@ -1,7 +1,8 @@
  TestClientTest1←{
      fn←GetTestFileFQP'ClientTest1.xlsx'
      p←##.Main.GetWorkbookInfo fn
-     h d←p ##.Main.GetSheetData'clienttest1'
+     r←p ##.Main.GetSheetData'clienttest1'
+     h d←r.Header r.Data
      ~(⎕UCS 13)∊(4⊃d)[4;]:1
      0
  }

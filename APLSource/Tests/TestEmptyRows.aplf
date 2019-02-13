@@ -1,7 +1,8 @@
  TestEmptyRows←{
      fn←GetTestFileFQP'EmptyRows.xlsx'
      p←##.Main.GetWorkbookInfo fn
-     h d←p ##.Main.GetSheetData'Sheet1'
+     r←p ##.Main.GetSheetData'Sheet1'
+     h d←r.Header r.Data
      4≠≢d:1
      4≠≢↑d:1
      0

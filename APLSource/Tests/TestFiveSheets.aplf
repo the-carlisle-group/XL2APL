@@ -2,11 +2,14 @@
      fn←GetTestFileFQP'FiveSheets.xlsx'
      p←##.Main.GetWorkbookInfo fn
      p.HeaderRows←0
-     h d←p ##.Main.GetSheetData'One'
+     r←p ##.Main.GetSheetData'One'
+     h d←r.Header r.Data
      (⊃d)≢↑'This' 'is' 'One':1
-     h d←p ##.Main.GetSheetData'Three'
+     r←p ##.Main.GetSheetData'Three'
+     h d←r.Header r.Data
      (⊃d)≢↑'This' 'is' 'Three':1
-     h d←p ##.Main.GetSheetData'Five'
+     r←p ##.Main.GetSheetData'Five'
+     h d←r.Header r.Data
      (⊃d)≢↑'This' 'is' 'Five':1
      0
  }

@@ -14,6 +14,7 @@
      k←⍸m[;1]∊⊂'definedName'
      p.RangetNames←'name'get m[k;3]
      p.RangeAddresses←m[k;2]
+     _←a GetFormatCodes p
      se←{⍵[⍵.FullName⍳fn]}⌷a.Entries
      p.Lengths←Convert.ToInt32¨se.Length
      p.CompressedLengths←Convert.ToInt32¨se.CompressedLength

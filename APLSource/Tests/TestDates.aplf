@@ -1,0 +1,8 @@
+ TestDates←{
+     fn←GetTestFileFQP'Dates.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     r←p ##.Main.GetSheetData'Sheet1'
+     r.IsString≢0 1 0 0 1:1
+     1 0 1 0 0≢∨/¨'yy'∘⍷¨r.FormatCode:1
+     0
+ }
