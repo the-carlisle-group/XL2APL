@@ -10,6 +10,8 @@
      fc←(c,⊂,'0')[(⍕¨⍳≢c)⍳s]
      j←wi.FormatCodeID⍳fc
      ⍵.FormatCode←wi.FormatCode[j]
-     ⍵.IsString←t∊⊂,'s'
+     id←∨⌿∨/¨'dd' 'yy' 'mmm'∘.⍷⍵.FormatCode
+     ic←t∊⊂,'s'
+     ⍵.ColumnType←'Numeric' 'Date' 'Char'[id+2×ic]
      0
  }
