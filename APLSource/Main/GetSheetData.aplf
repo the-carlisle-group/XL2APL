@@ -14,13 +14,13 @@
      p.Length←≢p.SheetData
      p.(Start Blocks)←0
      p.(Data Rows Columns Header)←⊂⍬
-     _←GetColumnFormatCodes p
      _←ProcessBlocks p
+     p.UniqueColumns←{⍵[⍋⍵]}∪∊p.Columns
      0=p.Blocks:p
+     _←GetColumnFormatCodes p
      _←p.⎕EX'SheetData'
      1=p.Blocks:p
-     u←{⍵[⍋⍵]}∪∊p.Columns
-     p.Data←p AssembleColumn¨u
-     p.Header←(u∊↑p.Columns)\p.Header
+     p.Data←p AssembleColumn¨p.UniqueColumns
+     p.Header←(p.UniqueColumns∊↑p.Columns)\p.Header
      p
  }

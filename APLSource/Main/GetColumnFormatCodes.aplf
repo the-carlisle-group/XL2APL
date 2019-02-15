@@ -5,13 +5,23 @@
      p←(+\'<row '⍷t)⊆t
      0=≢p:0
      m←{(⍵[;1]∊⊂,'c')⌿⍵}⎕XML h⊃p
-     r s t←m∘GetAttribute¨'rst'
+     ca←m GetAttribute'r'
+     ch←ca~¨⊂⎕D
+     b←{(⍵⍳⍵)=⍳≢⍵}ch
+     ch←b/ch
+     s t←(b⌿m)∘GetAttribute¨'st'
+     ci←¯1+26⊥⍉{⍵{(+/⍵)⌽⍵×⍺}⍵≠27}1+⎕A⍳↑ch
      c←wi.StyleFormatCodeID
      fc←(c,⊂,'0')[(⍕¨⍳≢c)⍳s]
      j←wi.FormatCodeID⍳fc
-     ⍵.FormatCode←wi.FormatCode[j]
-     id←∨⌿∨/¨'dd' 'yy' 'mmm'∘.⍷⍵.FormatCode
+     fc←wi.FormatCode[j]
+     id←∨⌿∨/¨'dd' 'yy' 'mmm'∘.⍷fc
      ic←t∊⊂,'s'
-     ⍵.ColumnType←'Numeric' 'Date' 'Char'[id+2×ic]
+     ct←'Numeric' 'Date' 'Char'[id+2×ic]
+     uc←⍵.UniqueColumns
+     n←≢uc
+     i←uc⍳ci
+     ⍵.FormatCode←fc(@i)n⍴⊂'General'
+     ⍵.ColumnType←ct(@i)n⍴⊂'Char'
      0
  }

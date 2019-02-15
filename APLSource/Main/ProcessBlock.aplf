@@ -10,14 +10,12 @@
      ca←m[ci;3]                      ⍝ Cell attributs (only for cells with values
      ai←(≢¨ca)/⍳≢ca
      an av←↓⍉⊃⍪/ca                   ⍝ Normalized cell attributes
-     a←(an∊⊂,'r')/av                 ⍝ Cell address
+     a←↑(an∊⊂,'r')/av                ⍝ Cell address
      si←ai[⍸(an∊⊂,'t')∧av∊⊂,'s']     ⍝ Shared String
      v[si]←ss[1⊃⎕VFI,' ',↑v[si]]
-     rn←1⊃⎕VFI' '@{⍵∊⎕A},↑a
+     rn←1⊃⎕VFI' '@{⍵∊⎕A},a
      ri←(∪rn)⍳rn
-     ch←a~¨⊂⎕D
-     xc←{⍵,,⍵∘.,⍵},¨⎕A                ⍝ (Mostly) All Excel Column Headers
-     ci←xc⍳ch                         ⍝ Column index
+     ci←¯1+26⊥⍉{⍵{(+/⍵)⌽⍵×⍺}⍵≠27}1+⎕A⍳a
      uc←{⍵[⍋⍵]}∪ci                    ⍝ Unique column numbers in order
      rc←uc⍳ci                         ⍝ Relative column index
      j←↓⍉↑ri rc                       ⍝ Scatter points
