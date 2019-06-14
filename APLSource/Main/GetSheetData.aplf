@@ -1,7 +1,11 @@
  GetSheetData←{
      ⍝ ⍺ ←→ Workbook info space
      ⍝ ⍵ ←→ sheet name
-     sn←⍵
+     ⍺.RowsProcessed←0
+     ⍺.BlocksProcessed←0
+     ⍺.EstimatedRowCount←0
+     ⍺.TotalBlocks←0
+     sn←⍵{0=≢⍺:⊃⍵ ⋄ ⍺}⍺.SheetNames
      i←⍺.SheetNames⍳⊂sn
      f←i⊃⍺.SheetFileNames
      z←OpenExcelFile ⍺.FileName
@@ -14,6 +18,7 @@
      p.Length←≢p.SheetData
      p.(Start Blocks)←0
      p.(Data Rows Columns Header)←⊂⍬
+     ⍺.TotalBlocks←⌈p.Length÷⍺.BlockSize
      _←ProcessBlocks p
      p.UniqueColumns←{⍵[⍋⍵]}∪∊p.Columns
      0=p.Blocks:p

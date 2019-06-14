@@ -7,6 +7,9 @@
      p.Blocks+←1
      p.Columns,←⊂i
      p.Rows,←≢⊃d
+     wi←p.WorkbookInfo
+     wi.BlocksProcessed+←1
+     wi.RowsProcessed←+/p.Rows
      p.Start=p.Length:0
      r←p.WorkbookInfo.RowsToRead
      (r≠0)∧r≤+/p.Rows:0
