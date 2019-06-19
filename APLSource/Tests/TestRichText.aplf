@@ -1,0 +1,9 @@
+ TestRichText←{
+     fn←GetTestFileFQP'RichText.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     p.HeaderRows←1
+     r←p ##.Main.GetSheetData'Sheet1'
+     h d←r.Header r.Data
+     d≢(⍉⍪)¨'Bold, Italic, Normal' 'Normal' 'Bold Only':1
+     0
+ }

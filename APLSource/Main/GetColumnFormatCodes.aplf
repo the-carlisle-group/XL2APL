@@ -3,7 +3,7 @@
      h←wi.HeaderRows
      t←{((2*19)⌊≢⍵)↑⍵}⍵.SheetData
      p←(+\'<row '⍷t)⊆t
-     0=≢p:0
+     h≥≢p:0
      m←{(⍵[;1]∊⊂,'c')⌿⍵}⎕XML h⊃p
      ca←m GetAttribute'r'
      ch←ca~¨⊂⎕D

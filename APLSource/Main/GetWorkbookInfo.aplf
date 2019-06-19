@@ -4,15 +4,18 @@
      a←OpenExcelFile ⍵
      p←⎕NS''
      p.FileName←⍵
-     get←{0=≢⍵:'' ⋄ ⍺∘{(⍵[;0]⍳⊂⍺)⊃⍵[;1]}¨⍵}
+     get←{0=≢⍵:'' ⋄ ⍺∘{(⍵[;0]⍳⊂⍺)⊃⍵[;1],⊂''}¨⍵}
+     r←⎕XML a ReadZipFile'xl/_rels/workbook.xml.rels'
+     ri←'Id'get r[;3]
+     rt←'Target'get r[;3]
      m←⎕XML a ReadZipFile'xl/workbook.xml'
      at←m[⍸m[;1]∊⊂'sheet';3]
      p.SheetNames←'name'get at
-     id←3↓¨'r:id'get at
-     fn←'xl/worksheets/sheet'∘,¨id,¨⊂'.xml'
+     id←'r:id'get at
+     fn←'xl/'∘,¨rt[ri⍳id]
      p.SheetFileNames←fn
      k←⍸m[;1]∊⊂'definedName'
-     p.RangetNames←'name'get m[k;3]
+     p.RangeNames←'name'get m[k;3]
      p.RangeAddresses←m[k;2]
      _←a GetFormatCodes p
      se←{⍵[⍵.FullName⍳fn]}⌷a.Entries
