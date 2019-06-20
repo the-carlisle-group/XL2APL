@@ -4,15 +4,20 @@
      ss←wi.SharedStrings
      m←⎕XML ⍵
      nr←+/m[;0]=0                    ⍝ Number of ross
-     vi←⍸m[;1]∊⊂,'v'                 ⍝ Value indices
+     vi←⍸m[;1]∊,¨'v' 'is'            ⍝ Value and inline string elements
      ci←vi{⍵[⍵⍸⍺]}⍸m[;1]∊⊂,'c'       ⍝ Corresponding Cell indices
      v←m[vi;2]                       ⍝ Values
+
      ca←m[ci;3]                      ⍝ Cell attributs (only for cells with values
      ai←(≢¨ca)/⍳≢ca
      an av←↓⍉⊃⍪/ca                   ⍝ Normalized cell attributes
      a←↑(an∊⊂,'r')/av                ⍝ Cell address
      si←ai[⍸(an∊⊂,'t')∧av∊⊂,'s']     ⍝ Shared String
      v[si]←ss[1⊃⎕VFI,' ',↑v[si]]
+     is←ai/⍨(an∊⊂,'t')∧av∊⊂'inlineStr'   ⍝ Inline strings
+     v[is]←GetInlineStrings m
+
+
      rn←1⊃⎕VFI' '@{⍵∊⎕A},a
      ri←(∪rn)⍳rn
      ci←¯1+26⊥⍉{⍵{(+/⍵)⌽⍵×⍺}⍵≠27}1+⎕A⍳a

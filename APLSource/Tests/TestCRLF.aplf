@@ -1,0 +1,13 @@
+ TestCRLF←{
+     fn←GetTestFileFQP'CRLF.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     p.HeaderRows←1
+     r←p ##.Main.GetSheetData'Sheet1'
+     h d←r.Header r.Data
+     lf←⎕UCS 13
+     t←1↓∊(⎕UCS 13),¨'This' 'is on three' 'multiple lines'
+     t≢(0⊃d)[0;]:1
+     t←1↓∊(⎕UCS 13),¨'This is' 'on two lines'
+     t≢(1⊃d)[0;]:1
+     0
+ }

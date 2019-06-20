@@ -1,9 +1,9 @@
- TestRichText←{
-     fn←GetTestFileFQP'RichText.xlsx'
+ TestInlineRTF←{
+     fn←GetTestFileFQP'InlineRTF.xlsx'
      p←##.Main.GetWorkbookInfo fn
      p.HeaderRows←1
      r←p ##.Main.GetSheetData'Sheet1'
      h d←r.Header r.Data
-     d≢(⍉⍪)¨'Bold Italic and plain' 'Normal' 'Bold Only':1
+     'Bold Italic and plain'≢2⊃↓0⊃d:1
      0
  }

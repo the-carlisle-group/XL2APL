@@ -1,0 +1,14 @@
+ TestInline←{
+     fn←GetTestFileFQP'Inline.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     p.HeaderRows←1
+     r←p ##.Main.GetSheetData'Sheet1'
+     h d←r.Header r.Data
+     fn2←GetTestFileFQP'InlineSavedInExcel.xlsx'
+     p2←##.Main.GetWorkbookInfo fn
+     p2.HeaderRows←1
+     r2←p ##.Main.GetSheetData'Sheet1'
+     h2 d2←r.Header r.Data
+     h d≢h2 d2:1
+     0
+ }
