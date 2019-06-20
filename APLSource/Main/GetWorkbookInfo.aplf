@@ -18,7 +18,9 @@
      p.RangeNames←'name'get m[k;3]
      p.RangeAddresses←m[k;2]
      _←a GetFormatCodes p
-     se←{⍵[⍵.FullName⍳fn]}⌷a.Entries
+     d←('/'∊⍕⌷a.Entries)⊃'\/'
+     f←d@('/'∘=)
+     se←{⍵[⍵.FullName⍳f¨fn]}⌷a.Entries
      p.Lengths←Convert.ToInt32¨se.Length
      p.CompressedLengths←Convert.ToInt32¨se.CompressedLength
      p.BlockSize←2*22

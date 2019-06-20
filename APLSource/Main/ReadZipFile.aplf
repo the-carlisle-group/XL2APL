@@ -2,7 +2,8 @@
      ⍝ ⍺ ←→ .NET ZipArchive
      ⍝ ⍵ ←→ .NET Entry FullName
      ⎕USING←'System'
-     e←⍺.GetEntry⊂⍵
+     d←('/'∊⍕⌷⍺.Entries)⊃'\/'
+     e←⍺.GetEntry⊂d@('/'∘=)⍵
      e=⎕NULL:''
      l←Convert.ToInt32 e.Length
      s←e.Open
