@@ -1,4 +1,7 @@
-# XL2APL Release 0.0.10                    
+# XL2APL Release 0.0.11                    
+1. Add Dev Folder param to acre config
+
+# XL2APL Release 0.0.10 2019-09-18 09:01:56
 1. Add URL to config file
 
 # XL2APL Release 0.0.9 2019-06-20 16:28:49
