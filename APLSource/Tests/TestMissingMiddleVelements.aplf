@@ -1,0 +1,10 @@
+ TestMissingMiddleVelements←{
+     fn←GetTestFileFQP'MissingMiddleVelements.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     p.HeaderRows←0
+     r←p ##.Main.GetSheetData'Sheet1'
+     d←r.Data
+     b←∨/¨d≠↑¨↓⍉⍕¨4 4⍴1+⍳16
+     b≢(1 0 0 0)(0 1 0 0)(0 0 0 0)(0 0 0 0):1
+     0
+ }

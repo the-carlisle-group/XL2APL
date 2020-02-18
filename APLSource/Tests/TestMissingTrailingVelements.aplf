@@ -1,0 +1,9 @@
+ TestMissingTrailingVelements←{
+     fn←GetTestFileFQP'MissingTrailingVelements.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     p.HeaderRows←0
+     r←p ##.Main.GetSheetData'Sheet1'
+     d←r.Data
+     d≢↑¨↓⍉⍕¨3↑[1]4 4⍴1+⍳16:1
+     0
+ }

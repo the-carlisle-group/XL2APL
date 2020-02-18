@@ -18,10 +18,8 @@
      id←∨⌿∨/¨'dd' 'yy' 'mmm'∘.⍷fc
      ic←t∊⊂,'s'
      ct←'Numeric' 'Date' 'Char'[id+2×ic]
-     uc←⍵.UniqueColumns
-     n←≢uc
-     i←uc⍳ci
-     ⍵.FormatCode←fc(@i)n⍴⊂'General'
-     ⍵.ColumnType←ct(@i)n⍴⊂'Char'
+     i←ci⍳⍵.UniqueColumns
+     ⍵.FormatCode←(fc,⊂'General')[i]
+     ⍵.ColumnType←(ct,⊂'Char')[i]
      0
  }
