@@ -1,4 +1,7 @@
-# XL2APL Release 0.0.12                    
+# XL2APL Release 0.0.13                    
+1. Fix Issue #8
+
+# XL2APL Release 0.0.12 2019-10-14 15:04:37
 1. Update acre config file
 
 # XL2APL Release 0.0.11 2019-10-09 13:43:58
