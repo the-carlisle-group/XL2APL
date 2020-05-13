@@ -1,0 +1,11 @@
+ IsXLSXFile←{
+     ⍝ ⍵ ←→ File Name
+     ⍝ ← ←→ Yes or No
+     ⎕USING←'System.IO.Compression,System.IO.Compression.FileSystem.dll'
+     90::0
+     a←ZipFile.OpenRead⊂⍵
+     90::Dispose a
+     v←a ReadZipFile'xl/_rels/workbook.xml.rels'
+     _←Dispose a
+     0<≢v
+ }
