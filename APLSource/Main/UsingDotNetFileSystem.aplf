@@ -1,0 +1,9 @@
+ UsingDotNetFileSystem←{
+⍝ Return ⎕USING value depending on available .NET version
+     ⎕IO←1
+     ⎕USING←''
+     dnv←System.Environment.Version.Major
+     3::'NONCE ERROR: .NET Core or .NET Framework unavailable'⎕SIGNAL 16
+     dll←('' '.DLL')[((2×4=dnv)+∨/3 5=dnv)]
+     ',System.IO.Compression' ',System.IO.Compression.FileSystem',¨dll
+ }
