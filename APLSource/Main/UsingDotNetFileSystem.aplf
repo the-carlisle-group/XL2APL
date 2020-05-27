@@ -3,7 +3,6 @@
      ⎕IO←1
      ⎕USING←''
      dnv←System.Environment.Version.Major
-     3::'NONCE ERROR: .NET Core or .NET Framework unavailable'⎕SIGNAL 16
-     dll←('' '.DLL')[((2×4=dnv)+∨/3 5=dnv)]
+     dll←⊂(4=dnv)/'.DLL' ⍝ 4 Framework, 3 5 Core
      ',System.IO.Compression' ',System.IO.Compression.FileSystem',¨dll
  }
