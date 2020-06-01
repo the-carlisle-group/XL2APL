@@ -1,4 +1,9 @@
-# XL2APL Release 0.0.13                    
+# XL2APL Release 0.0.14                    
+1. Add API parameer to config file
+2. Add test for IsXLSXFile function
+3. Add IsXLSXFile function
+
+# XL2APL Release 0.0.13 2020-02-18 13:24:44
 1. Fix Issue #8
 
 # XL2APL Release 0.0.12 2019-10-14 15:04:37
