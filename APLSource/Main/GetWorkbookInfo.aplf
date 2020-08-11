@@ -11,6 +11,8 @@
      m←⎕XML a ReadZipFile'xl/workbook.xml'
      at←m[⍸m[;1]∊⊂'sheet';3]
      p.SheetNames←'name'get at
+     p.ActiveTab←⊃1⊃⎕VFI⊃'activeTab'get m[m[;1]⍳⊂'workbookView';3]
+     p.ActiveSheet←p.ActiveTab⊃p.SheetNames
      id←'r:id'get at
      fn←'xl/'∘,¨rt[ri⍳id]
      p.SheetFileNames←fn
