@@ -1,4 +1,7 @@
-# XL2APL Release 0.0.14                    
+# XL2APL Release 0.0.15                    
+1. Add ActiveSheet property (Issue #10)
+
+# XL2APL Release 0.0.14 2020-06-01 09:23:22
 1. Add API parameer to config file
 2. Add test for IsXLSXFile function
 3. Add IsXLSXFile function
