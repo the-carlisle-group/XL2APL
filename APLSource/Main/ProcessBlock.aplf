@@ -20,6 +20,7 @@
 
      rn←1⊃⎕VFI' '@{⍵∊⎕A},a
      ri←(∪rn)⍳rn
+     ⍝ ci←¯1+26⊥⍉{⍵⌽⍨+/0≠⍵}(' ',⎕A)⍳a     ⍝ Put this in!
      ci←¯1+26⊥⍉{⍵{(+/⍵)⌽⍵×⍺}⍵≠27}1+⎕A⍳a
      uc←{⍵[⍋⍵]}∪ci                    ⍝ Unique column numbers in order
      rc←uc⍳ci                         ⍝ Relative column index
