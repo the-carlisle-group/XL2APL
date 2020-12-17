@@ -1,0 +1,14 @@
+ TestReadOnlyFile←{
+     fn←GetTestFileFQP'Baseball.xlsx'
+     t←fn ⎕NTIE 0
+     p←##.Main.GetWorkbookInfo fn
+     r←p ##.Main.GetSheetData'Batting'
+     _←⎕NUNTIE t
+     h d←r.Header r.Data
+     104324≢≢⊃d:1
+     (5↑,h)≢'playerID' 'yearID' 'stint' 'teamID' 'lgID':1
+     (¯5↑,h)≢'IBB' 'HBP' 'SH' 'SF' 'GIDP':1
+     (,¨2↑1↑¨d)≢'abercda01' '1871':1
+     (,¨2↑¯1↑¨d)≢'zychto01 ' '2017':1
+     0
+ }

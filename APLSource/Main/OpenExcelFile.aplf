@@ -1,6 +1,10 @@
  OpenExcelFile←{
      ⍝ ⍵ ←→ File Name
      ⍝ ← ←→ .NET ZipArchive
-     ⎕USING←'System.IO.Compression,System.IO.Compression.FileSystem.dll'
-     ZipFile.OpenRead⊂⍵
+     ⎕USING←'System.IO.Compression,System.IO.Compression.dll'
+     ⎕USING,←⊂'System.IO,System.Runtime.dll'
+     fs←⎕NEW FileStream(⍵ FileMode.Open FileAccess.Read FileShare.ReadWrite)
+     ⎕NEW ZipArchive(fs ZipArchiveMode.Read)
+⍝    ⎕USING←'System.IO.Compression,System.IO.Compression.FileSystem.dll'
+⍝    ZipFile.OpenRead⊂⍵
  }
