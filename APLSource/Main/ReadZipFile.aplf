@@ -5,10 +5,8 @@
      d←('/'∊⍕⌷⍺.Entries)⊃'\/'
      e←⍺.GetEntry⊂d@('/'∘=)⍵
      e=⎕NULL:''
-     l←Convert.ToInt32 e.Length
-     s←e.Open
-     b←Array.CreateInstance Byte l
-     _←s.Read b 0(l)
+     s←⎕NEW IO.StreamReader e.Open
+     r←s.ReadToEnd
      _←Dispose s
-     'UTF-8'⎕UCS b.Clone
+     r
  }

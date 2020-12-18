@@ -23,6 +23,7 @@
      d←('/'∊⍕⌷a.Entries)⊃'\/'
      f←d@('/'∘=)
      se←{⍵[⍵.FullName⍳f¨fn]}⌷a.Entries
+     ⎕USING←'System'
      p.Lengths←Convert.ToInt32¨se.Length
      p.CompressedLengths←Convert.ToInt32¨se.CompressedLength
      p.BlockSize←2*22
