@@ -1,4 +1,10 @@
-# XL2APL Release 0.0.15                    
+# XL2APL Release 0.0.16                    
+1. Simplify ReadZipFile per Richard Park
+2. Fix read-only bug (Issue #11)
+3. Enhance documentation
+4. Better expression for computing cell address
+
+# XL2APL Release 0.0.15 2020-08-13 17:14:29
 1. Add ActiveSheet property (Issue #10)
 
 # XL2APL Release 0.0.14 2020-06-01 09:23:22
