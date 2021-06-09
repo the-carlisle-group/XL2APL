@@ -1,8 +1,6 @@
  GetWorkbookInfo←{
      ⍝ ⍵ ←→ FQP of .xlsx file
      ⍝   ←→ Space of usefull stuff
-     0::⎕SIGNAL⊂⎕DMX.(('EN'EN)('Message'Message))
-     3 6::⎕SIGNAL⊂('EN' 16)('Message' '.NET unavailable')
      a←OpenExcelFile ⍵
      p←⎕NS''
      p.FileName←⍵
