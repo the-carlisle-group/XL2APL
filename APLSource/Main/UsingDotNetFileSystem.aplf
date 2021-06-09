@@ -1,6 +1,5 @@
  UsingDotNetFileSystem←{
 ⍝ Return ⎕USING value depending on available .NET version
-     ⎕IO←1
      ⎕USING←''
      dnv←System.Environment.Version.Major
      dll←⊂(4=dnv)/'.DLL' ⍝ 4 Framework, 3 5 Core
