@@ -1,4 +1,7 @@
-# XL2APL Release 0.0.16                    
+# XL2APL Release 0.0.17                    
+1. Fix bug in GetColumnFormatCodes
+
+# XL2APL Release 0.0.16 2020-12-17 21:16:36
 1. Simplify ReadZipFile per Richard Park
 2. Fix read-only bug (Issue #11)
 3. Enhance documentation
