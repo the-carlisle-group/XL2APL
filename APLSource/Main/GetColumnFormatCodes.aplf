@@ -1,8 +1,8 @@
  GetColumnFormatCodes←{
      wi←⍵.WorkbookInfo
      h←wi.HeaderRows
-     t←{((2*19)⌊≢⍵)↑⍵}⍵.SheetData
-     p←(+\'<row '⍷t)⊆t
+     n←(2*19)⌊≢⍵.SheetData
+     p←{(+\'<row '⍷⍵)⊆⍵}n↑⍵.SheetData
      h≥≢p:0
      m←{(⍵[;1]∊⊂,'c')⌿⍵}⎕XML h⊃p
      ca←m GetAttribute'r'
@@ -15,9 +15,9 @@
      fc←(c,⊂,'0')[(⍕¨⍳≢c)⍳s]
      j←wi.FormatCodeID⍳fc
      fc←wi.FormatCode[j]
-     id←∨⌿∨/¨'dd' 'yy' 'mmm'∘.⍷fc
      ic←t∊⊂,'s'
-     ct←'Numeric' 'Date' 'Char'[id+2×ic]
+     id←∨⌿∨/¨'dd' 'yy' 'mmm'∘.⍷fc
+     ct←'Numeric' 'Date' 'Char'[2⌊2⊥↑ic id]
      i←ci⍳⍵.UniqueColumns
      ⍵.FormatCode←(fc,⊂'General')[i]
      ⍵.ColumnType←(ct,⊂'Char')[i]
