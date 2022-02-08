@@ -2,9 +2,6 @@
      ⍝ ⍺ ←→ Workbook info space
      ⍝ ⍵ ←→ sheet name
      ⍺.RowsProcessed←0
-     ⍺.BlocksProcessed←0
-     ⍺.EstimatedRowCount←0
-     ⍺.TotalBlocks←0
      sn←⍵{0=≢⍺:⊃⍵ ⋄ ⍺}⍺.SheetNames
      i←⍺.SheetNames⍳⊂sn
      f←i⊃⍺.SheetFileNames
@@ -13,17 +10,18 @@
      p←⎕NS''
      p.WorkbookInfo←⍺
      p.SheetName←sn
-     p.SheetData←z GetSheetDataXML f
-     _←Dispose z
-     p.Length←≢p.SheetData
-     p.(Start Blocks)←0
+     p.File←z OpenZipFile f
+     p.BlockSize←⍺.BlockSize
+     p.Buffer←CreateBuffer p.BlockSize
+     p.Fragment←''
+     p.Blocks←0
+     p.EndOfRows←0
      p.(Data Rows Columns Header)←⊂⍬
-     ⍺.TotalBlocks←⌈p.Length÷⍺.BlockSize
      _←ProcessBlocks p
+     _←Dispose¨z p.File
      p.UniqueColumns←{⍵[⍋⍵]}∪∊p.Columns
      0=p.Blocks:p
      _←GetColumnFormatCodes p
-     _←p.⎕EX'SheetData'
      1=p.Blocks:p
      p.Data←p AssembleColumn¨p.UniqueColumns
      p.Header←(p.UniqueColumns∊↑p.Columns)\p.Header

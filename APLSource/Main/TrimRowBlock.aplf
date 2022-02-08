@@ -1,0 +1,8 @@
+ TrimRowBlock←{
+     b←'</sheetData>'⍷⍵
+     ⍺.EndOfRows←∨/b
+     ⍺.EndOfRows:⍵↑⍨⍸b
+     m←6+⊃⌽⍸'</row>'⍷⍵
+     ⍺.Fragment←m↓⍵
+     m↑⍵
+ }

@@ -26,7 +26,7 @@
      j←↓⍉↑ri rc                       ⍝ Scatter points
      d←(nr,≢uc)⍴⊂''                   ⍝ Default
      d[j]←v                           ⍝ Scatter point
-     p.Blocks≠0:uc(↑¨↓⍉d)
+     p.Blocks>1:uc(↑¨↓⍉d)
      h←wi.HeaderRows
      p.Header←h↑d
      uc(↑¨↓⍉h↓d)                      ⍝ Column Indices , Inverted Data

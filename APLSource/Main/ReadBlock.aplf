@@ -1,0 +1,5 @@
+ ReadBlock←{
+     ⍵.Blocks+←1
+     r←⍵.File.ReadBlock ⍵.(Buffer 0 BlockSize)
+     ⍵.Fragment,r↑⍵.Buffer.Clone
+ }

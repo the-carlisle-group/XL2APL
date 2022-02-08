@@ -1,0 +1,4 @@
+ CreateBuffer←{
+     ⎕USING←'System'
+     Array.CreateInstance(Char ⍵)
+ }

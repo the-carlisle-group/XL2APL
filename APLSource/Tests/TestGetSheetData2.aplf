@@ -4,14 +4,10 @@
      p.RowsToRead←100
      r←p ##.Main.GetSheetData'People'
      h d←r.Header r.Data
-     5879≢≢⊃d:1
-     p.RowsToRead←10000
-     r←p ##.Main.GetSheetData'People'
-     h d←r.Header r.Data
-     11664≢≢⊃d:1
+     19370=≢≢⊃d:1
      p.RowsToRead←0
      r←p ##.Main.GetSheetData'People'
      h d←r.Header r.Data
-     19370≢≢⊃d:1
+     19370≠≢⊃d:1
      0
  }

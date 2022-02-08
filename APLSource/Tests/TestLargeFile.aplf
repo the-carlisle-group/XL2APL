@@ -1,0 +1,12 @@
+ TestLargeFile←{
+     ⍝ fn←GetTestFileFQP'large.xlsx'
+     0
+     st←20 ⎕DT⊂⎕TS
+     fn←'c:\DataSets\ProblemFiles\large.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     p.BlockSize←2*26
+     r←p ##.Main.GetSheetData'Sheet1'
+     (≢r.ColumnType)≢≢r.Data:1
+     ⎕←'Seconds: ',(20 ⎕DT⊂⎕TS)-st
+     0
+ }

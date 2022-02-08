@@ -1,17 +1,13 @@
  ProcessBlocks←{
-     p←⍵
-     b←GetBlock p
+     b←ReadRowBlock ⍵
      0=≢b:0
-     i d←p ProcessBlock b
-     p.Data,←d
-     p.Blocks+←1
-     p.Columns,←⊂i
-     p.Rows,←≢⊃d
-     wi←p.WorkbookInfo
-     wi.BlocksProcessed+←1
-     wi.RowsProcessed←+/p.Rows
-     p.Start=p.Length:0
-     r←p.WorkbookInfo.RowsToRead
-     (r≠0)∧r≤+/p.Rows:0
-     ∇ p
+     i d←⍵ ProcessBlock b
+     ⍵.Data,←d
+     ⍵.Columns,←⊂i
+     ⍵.Rows,←≢⊃d
+     wi←⍵.WorkbookInfo
+     wi.RowsProcessed←+/⍵.Rows
+     r←⍵.WorkbookInfo.RowsToRead
+     (r≠0)∧r≤+/⍵.Rows:0
+     ∇ ⍵
  }
