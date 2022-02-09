@@ -1,6 +1,0 @@
- ReadRowBlockFirst←{
-     v←ReadBlock ⍵
-     ∨/'<sheetData/>'⍷v:''
-     n←11+⊃⍸'<sheetData>'⍷v
-     ⍵ TrimRowBlock n↓v
- }

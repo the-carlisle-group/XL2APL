@@ -15,14 +15,14 @@
      p.Buffer←CreateBuffer p.BlockSize
      p.FirstRow←⍬
      p.Fragment←''
-     p.Blocks←0
+     p.Block←0
      p.EndOfRows←0
      p.(Data Rows Columns Header)←⊂⍬
      _←ProcessBlocks p
      _←Dispose¨z p.File
      p.UniqueColumns←{⍵[⍋⍵]}∪∊p.Columns
      _←GetColumnFormatCodes p
-     1=p.Blocks:p
+     1=p.Block:p
      p.Data←p AssembleColumn¨p.UniqueColumns
      p.Header←(p.UniqueColumns∊↑p.Columns)\p.Header
      p

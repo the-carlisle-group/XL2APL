@@ -1,5 +1,10 @@
  ReadRowBlock←{
      ⍵.EndOfRows:''
-     0=⍵.Blocks:ReadRowBlockFirst ⍵
-     ⍵ TrimRowBlock ReadBlock ⍵
+     ⍵.Block+←1
+     r←⍵.File.ReadBlock ⍵.(Buffer 0 BlockSize)
+     v←⍵.Fragment,r↑⍵.Buffer.Clone
+     ⍵.Block>1:⍵ TrimRowBlock v
+     ∨/'<sheetData/>'⍷v:''
+     n←11+⊃⍸'<sheetData>'⍷v
+     ⍵ TrimRowBlock n↓v
  }

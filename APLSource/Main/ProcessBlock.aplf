@@ -26,7 +26,7 @@
      j←↓⍉↑ri rc                       ⍝ Scatter points
      d←(nr,≢uc)⍴⊂''                   ⍝ Default
      d[j]←v                           ⍝ Scatter point
-     p.Blocks>1:uc(↑¨↓⍉d)
+     p.Block>1:uc(↑¨↓⍉d)
      h←wi.HeaderRows
      p.FirstRow←(h=¯1++\0=m[;0])⌿m
      p.Header←h↑d
