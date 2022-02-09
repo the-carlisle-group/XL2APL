@@ -1,16 +1,13 @@
  GetColumnFormatCodes←{
-     wi←⍵.WorkbookInfo
-     h←wi.HeaderRows
-     n←(2*19)⌊≢⍵.FirstBlock
-     p←{(+\'<row '⍷⍵)⊆⍵}n↑⍵.FirstBlock
-     h≥≢p:0
-     m←{(⍵[;1]∊⊂,'c')⌿⍵}⎕XML h⊃p
+     0=≢⍵.FirstRow:0
+     m←{(⍵[;1]∊⊂,'c')⌿⍵}⍵.FirstRow
      ca←m GetAttribute'r'
      ch←ca~¨⊂⎕D
      b←{(⍵⍳⍵)=⍳≢⍵}ch
      ch←b/ch
      s t←(b⌿m)∘GetAttribute¨'st'
      ci←¯1+26⊥⍉{⍵{(+/⍵)⌽⍵×⍺}⍵≠27}1+⎕A⍳↑ch
+     wi←⍵.WorkbookInfo
      c←wi.StyleFormatCodeID
      fc←(c,⊂,'0')[(⍕¨⍳≢c)⍳s]
      j←wi.FormatCodeID⍳fc

@@ -13,6 +13,7 @@
      p.File←z OpenZipFile f
      p.BlockSize←⍺.BlockSize
      p.Buffer←CreateBuffer p.BlockSize
+     p.FirstRow←⍬
      p.Fragment←''
      p.Blocks←0
      p.EndOfRows←0
@@ -20,7 +21,6 @@
      _←ProcessBlocks p
      _←Dispose¨z p.File
      p.UniqueColumns←{⍵[⍋⍵]}∪∊p.Columns
-     0=p.Blocks:p
      _←GetColumnFormatCodes p
      1=p.Blocks:p
      p.Data←p AssembleColumn¨p.UniqueColumns

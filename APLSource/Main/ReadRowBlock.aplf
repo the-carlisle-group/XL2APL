@@ -1,5 +1,5 @@
  ReadRowBlock←{
      ⍵.EndOfRows:''
-     0=⍵.Blocks:⍵.FirstBlock←ReadRowBlockFirst ⍵
+     0=⍵.Blocks:ReadRowBlockFirst ⍵
      ⍵ TrimRowBlock ReadBlock ⍵
  }
