@@ -1,4 +1,9 @@
-# XL2APL Release 0.0.17                    
+# XL2APL Release 0.0.18                    
+1. Simplify block reading
+2. Simplify keeping first row XML for later type and format analysis
+3. Move blocking to XML in zip archive to handle large files
+
+# XL2APL Release 0.0.17 2021-12-09 09:21:22
 1. Fix bug in GetColumnFormatCodes
 
 # XL2APL Release 0.0.16 2020-12-17 21:16:36
