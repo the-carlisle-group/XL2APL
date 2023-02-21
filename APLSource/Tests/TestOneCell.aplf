@@ -4,7 +4,7 @@
      p.HeaderRows←1
      r←p ##.Main.GetSheetData'Sheet1'
      h d←r.Header r.Data
-     h≢1 1⍴⊂'AA':1
-     (,0)≢≢¨d:1
+     Assert h≡1 1⍴⊂'AA':
+     Assert(,0)≡≢¨d:
      0
  }

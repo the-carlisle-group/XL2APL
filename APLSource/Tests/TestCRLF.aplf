@@ -6,8 +6,8 @@
      h d←r.Header r.Data
      lf←⎕UCS 13
      t←1↓∊(⎕UCS 13),¨'This' 'is on three' 'multiple lines'
-     t≢(0⊃d)[0;]:1
+     Assert t≡(0⊃d)[0;]:
      t←1↓∊(⎕UCS 13),¨'This is' 'on two lines'
-     t≢(1⊃d)[0;]:1
+     Assert t≡(1⊃d)[0;]:
      0
  }

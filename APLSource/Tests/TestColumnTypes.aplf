@@ -2,6 +2,6 @@
      fn←GetTestFileFQP'Baseball.xlsx'
      p←##.Main.GetWorkbookInfo fn
      r←p ##.Main.GetSheetData'People'
-     (≢r.ColumnType)≢≢r.Data:1
+     Assert(≢r.ColumnType)≡≢r.Data:
      0
  }

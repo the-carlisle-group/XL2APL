@@ -4,6 +4,6 @@
      p.HeaderRows←0
      r←p ##.Main.GetSheetData'Four'
      h d←r.Header r.Data
-     (⊃d)≢↑'This' 'is' 'Four':1
+     Assert(⊃d)≡↑'This' 'is' 'Four':
      0
  }
