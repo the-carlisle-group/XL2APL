@@ -1,6 +1,6 @@
  TestLargeFile←{
      ⍝ fn←GetTestFileFQP'large.xlsx'
-     0
+     3
      st←20 ⎕DT⊂⎕TS
      fn←'c:\DataSets\ProblemFiles\large.xlsx'
      p←##.Main.GetWorkbookInfo fn
