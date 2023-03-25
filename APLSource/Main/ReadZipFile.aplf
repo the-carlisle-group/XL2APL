@@ -1,10 +1,10 @@
- ReadZipFile←{
+ReadZipFile←{
      ⍝ ⍺ ←→ .NET ZipArchive
      ⍝ ⍵ ←→ .NET Entry FullName
      ⎕USING←'System'
      d←('/'∊⍕⌷⍺.Entries)⊃'\/'
      e←⍺.GetEntry⊂d@('/'∘=)⍵
-     e=⎕NULL:''
+     e≡⎕NULL:''
      s←⎕NEW IO.StreamReader e.Open
      r←s.ReadToEnd
      _←Dispose s
