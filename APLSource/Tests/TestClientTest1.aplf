@@ -3,6 +3,6 @@
      p←##.Main.GetWorkbookInfo fn
      r←p ##.Main.GetSheetData'clienttest1'
      h d←r.Header r.Data
-     Assert(⎕UCS 13)∊(4⊃d)[4;]
+     Assert(⎕UCS 13)∊(4⊃d)[4;]:
      0
  }
