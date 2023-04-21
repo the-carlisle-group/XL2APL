@@ -2,8 +2,8 @@
      fn←GetTestFileFQP'EmptySheets.xlsx'
      p←##.Main.GetWorkbookInfo fn
      p.HeaderRows←0
-     0 0≢≢¨{⍵.Header ⍵.Data}p ##.Main.GetSheetData'Sheet1':1
-     0 0≢≢¨{⍵.Header ⍵.Data}p ##.Main.GetSheetData'Sheet2':1
-     0 0≢≢¨{⍵.Header ⍵.Data}p ##.Main.GetSheetData'Sheet3':1
+     Assert 0 0≡≢¨{⍵.Header ⍵.Data}p ##.Main.GetSheetData'Sheet1':
+     Assert 0 0≡≢¨{⍵.Header ⍵.Data}p ##.Main.GetSheetData'Sheet2':
+     Assert 0 0≡≢¨{⍵.Header ⍵.Data}p ##.Main.GetSheetData'Sheet3':
      0
  }

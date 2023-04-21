@@ -3,7 +3,7 @@
      p←##.Main.GetWorkbookInfo fn
      r←p ##.Main.GetSheetData'Sheet1'
      h d←r.Header r.Data
-     4≠≢d:1
-     4≠≢↑d:1
+     Assert 4=≢d:
+     Assert 4=≢↑d:
      0
  }

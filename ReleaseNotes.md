@@ -1,4 +1,7 @@
-# XL2APL Release 0.0.18                    
+# XL2APL Release 0.0.19                    
+1. Fix Issue #16 (IsXLSXFile does not work if file is open)
+
+# XL2APL Release 0.0.18 2022-04-01 12:51:03
 1. Simplify block reading
 2. Simplify keeping first row XML for later type and format analysis
 3. Move blocking to XML in zip archive to handle large files

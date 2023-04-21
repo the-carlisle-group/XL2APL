@@ -1,7 +1,7 @@
  TestGetEntireWookbook←{
      fn←GetTestFileFQP'Baseball.xlsx'
      v←##.Main.GetEntireWorkbook fn
-     'People' 'Pitching' 'Batting'≢v.SheetName:1
-     19370 45806 104324≢{≢⊃⍵}¨v.Data:1
+     Assert'People' 'Pitching' 'Batting'≡v.SheetName:
+     Assert 19370 45806 104324≡{≢⊃⍵}¨v.Data:
      0
  }

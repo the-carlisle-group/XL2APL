@@ -2,16 +2,15 @@
      fqp←GetTestFileFQP
      isXLSX←##.Main.IsXLSXFile
      isNotXLSX←~isXLSX
-     assert←~
-     assert isXLSX fqp'FiveSheets.xlsx':1
+     Assert isXLSX fqp'FiveSheets.xlsx':
      n←fqp'CSV.csv'
-     assert ⎕NEXISTS n:1
-     assert isNotXLSX n:1
+     Assert ⎕NEXISTS n:
+     Assert isNotXLSX n:
      n←fqp'BinaryWorkbook.xlsb'
-     assert ⎕NEXISTS n:1
-     assert isNotXLSX n:1
+     Assert ⎕NEXISTS n:
+     Assert isNotXLSX n:
      n←fqp'Excel97-2003Workbook.xls'
-     assert ⎕NEXISTS n:1
-     assert isNotXLSX n:1
+     Assert ⎕NEXISTS n:
+     Assert isNotXLSX n:
      0
  }

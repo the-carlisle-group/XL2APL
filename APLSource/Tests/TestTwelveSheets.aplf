@@ -4,12 +4,12 @@
      p.HeaderRows←0
      r←p ##.Main.GetSheetData'Twelve'
      h d←r.Header r.Data
-     (⊃d)≢↑'This' 'is' 'Twelve':1
+     Assert(⊃d)≡↑'This' 'is' 'Twelve':
      r←p ##.Main.GetSheetData'Seven'
      h d←r.Header r.Data
-     (⊃d)≢↑'This' 'is' 'Seven':1
+     Assert(⊃d)≡↑'This' 'is' 'Seven':
      r←p ##.Main.GetSheetData'One'
      h d←r.Header r.Data
-     (⊃d)≢↑'This' 'is' 'One':1
+     Assert(⊃d)≡↑'This' 'is' 'One':
      0
  }

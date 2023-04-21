@@ -9,6 +9,6 @@
      p2.HeaderRows←1
      r2←p ##.Main.GetSheetData'Sheet1'
      h2 d2←r.Header r.Data
-     h d≢h2 d2:1
+     Assert h d≡h2 d2:
      0
  }

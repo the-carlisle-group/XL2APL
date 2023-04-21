@@ -5,10 +5,10 @@
      r←p ##.Main.GetSheetData'Batting'
      _←⎕NUNTIE t
      h d←r.Header r.Data
-     104324≢≢⊃d:1
-     (5↑,h)≢'playerID' 'yearID' 'stint' 'teamID' 'lgID':1
-     (¯5↑,h)≢'IBB' 'HBP' 'SH' 'SF' 'GIDP':1
-     (,¨2↑1↑¨d)≢'abercda01' '1871':1
-     (,¨2↑¯1↑¨d)≢'zychto01 ' '2017':1
+     Assert 104324≡≢⊃d:
+     Assert(5↑,h)≡'playerID' 'yearID' 'stint' 'teamID' 'lgID':
+     Assert(¯5↑,h)≡'IBB' 'HBP' 'SH' 'SF' 'GIDP':
+     Assert(,¨2↑1↑¨d)≡'abercda01' '1871':
+     Assert(,¨2↑¯1↑¨d)≡'zychto01 ' '2017':
      0
  }

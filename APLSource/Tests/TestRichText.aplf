@@ -4,6 +4,6 @@
      p.HeaderRows←1
      r←p ##.Main.GetSheetData'Sheet1'
      h d←r.Header r.Data
-     d≢(⍉⍪)¨'Bold Italic and plain' 'Normal' 'Bold Only':1
+     Assert d≡(⍉⍪)¨'Bold Italic and plain' 'Normal' 'Bold Only':
      0
  }
