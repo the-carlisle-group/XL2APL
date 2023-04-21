@@ -1,0 +1,6 @@
+ UsingDotNetFramework←{
+     ⍝ ⍵: 0
+     ⍝ ← ←→ .NET Framework (4): '.dll', .NET Core (3.1, 5+): ''
+     ⍝ Add '.dll' to ⎕USING items when on .NET Framework
+     (2 1≡2↑2250⌶0)/'.dll'
+ }

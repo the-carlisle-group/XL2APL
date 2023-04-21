@@ -1,7 +1,7 @@
 OpenExcelFile←{
      ⍝ ⍵ ←→ File Name
      ⍝ ← ←→ .NET ZipArchive
-     dll←(2 1≡2↑2250⌶0)/'.dll' ⍝ .NET Framework: add .dll
+     dll←UsingDotNetFramework 0
      ⎕USING←'System.IO.Compression,System.IO.Compression',dll
      ⎕USING,←⊂'System.IO,System.Runtime',dll
 
