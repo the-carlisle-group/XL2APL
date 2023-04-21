@@ -1,9 +1,9 @@
- OpenZipFile←{
+OpenZipFile←{
      ⍝ ⍺ ←→ .NET ZipArchive
      ⍝ ⍵ ←→ .NET Entry FullName
      ⎕USING←'System'
      d←('/'∊⍕⌷⍺.Entries)⊃'\/'
      e←⍺.GetEntry⊂d@('/'∘=)⍵
-     e=⎕NULL:0
+     e≡⎕NULL:0
      ⎕NEW IO.StreamReader e.Open
  }
