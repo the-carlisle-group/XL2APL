@@ -1,34 +1,17 @@
  ProcessBlock←{
      p←⍺
-     wi←p.WorkbookInfo
-     ss←wi.SharedStrings
      m←⎕XML ⍵
-     nr←+/m[;0]=0                    ⍝ Number of ross
-     vi←⍸m[;1]∊,¨'v' 'is'            ⍝ Value and inline string elements
-     ci←vi{⍵[⍵⍸⍺]}⍸m[;1]∊⊂,'c'       ⍝ Corresponding Cell indices
-     v←m[vi;2]                       ⍝ Values
-     ca←m[ci;3]                      ⍝ Cell attributs (only for cells with values
-     ai←(≢¨ca)/⍳≢ca
-     an av←↓⍉⊃⍪/ca                   ⍝ Normalized cell attributes
-     a←↑(an∊⊂,'r')/av                ⍝ Cell address
-     si←ai[⍸(an∊⊂,'t')∧av∊⊂,'s']     ⍝ Shared String
-     v[si]←ss[1⊃⎕VFI,' ',↑v[si]]
-     is←ai/⍨(an∊⊂,'t')∧av∊⊂'inlineStr'   ⍝ Inline strings
-     v[is]←GetInlineStrings m
-     rn←1⊃⎕VFI' '@{⍵∊⎕A},a
-     ri←(∪rn)⍳rn
-     ⍝ Improvement:
-     ⍝ This won't work on tests! Investigate!
-     ⍝ ci←¯1+26⊥⍉{⍵⌽⍨+/0≠⍵}(' ',⎕A)⍳a     ⍝ Put this in!
-     ci←¯1+26⊥⍉{⍵{(+/⍵)⌽⍵×⍺}⍵≠27}1+⎕A⍳a
-     uc←{⍵[⍋⍵]}∪ci                    ⍝ Unique column numbers in order
-     rc←uc⍳ci                         ⍝ Relative column index
-     j←↓⍉↑ri rc                       ⍝ Scatter points
-     d←(nr,≢uc)⍴⊂''                   ⍝ Default
-     d[j]←v                           ⍝ Scatter point
+     (r c v)←p ProcessCells m
+     (nr ri)←p ProcessRowIndices r
+     (nc ci uc)←p ProcessColumnIndices c
+     d←nr nc⍴⊂''
+     d[↓⍉↑ri ci]←v
      p.Block>1:uc(↑¨↓⍉d)
-     h←wi.HeaderRows
-     p.FirstRow←(h=¯1++\0=m[;0])⌿m
-     p.Header←h↑d
-     uc(↑¨↓⍉h↓d)                      ⍝ Column Indices , Inverted Data
+     p.FirstRow←p GetFirstRowWithData m
+     i←p.WorkbookInfo
+     sh←i.SkipBeforeHeader
+     h←i.HeaderRows
+     sd←i.SkipBeforeData
+     p.Header←sh↓d↑⍨h+sh
+     uc(↑¨↓⍉d↓⍨sh+h+sd)
  }

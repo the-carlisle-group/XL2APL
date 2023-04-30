@@ -1,0 +1,15 @@
+ GetFirstRowWithData←{
+     ⍝ ⍺ ←→ Workbook info space
+     ⍝ ⍵ ←→ XML matrix of excel rows (first block)
+     ⍝ ← ←→ XML matrix of first row with data
+     p m←⍺ ⍵
+     i←p.WorkbookInfo
+     n←+/i.(SkipBeforeHeader SkipBeforeData HeaderRows)
+     r←⊃p.RowNumbers
+     l←1+r⍸n
+     l=≢r:0⌿m
+     q←m GetAttribute'r'
+     j←⍸q∊⊂⍕l⊃r
+     k←+\0=m[;0]
+     m⌿⍨k=j⊃k
+ }

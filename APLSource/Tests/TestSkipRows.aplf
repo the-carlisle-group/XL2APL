@@ -1,0 +1,32 @@
+ TestSkipRows←{
+     getvals←{⍵[;2]/⍨⍵[;1]∊⊂,'v'}
+     f←GetTestFileFQP'SkipRowsSparse.xlsx'
+     p←##.Main.GetWorkbookInfo f
+     p.SkipBeforeHeader←5
+     p.HeaderRows←2
+     p.SkipBeforeData←2
+     r←p ##.Main.GetSheetData'Sheet1'
+     h d←r.Header r.Data
+     Assert(,¨'159')≡getvals r.FirstRow:
+     Assert 4=≢⊃d:
+     Assert h≡2 3⍴(3⍴⊂'Column'),'One' 'Two' 'Three':
+     p←##.Main.GetWorkbookInfo f
+     p.SkipBeforeHeader←5
+     p.HeaderRows←2
+     r←p ##.Main.GetSheetData'Sheet1'
+     h d←r.Header r.Data
+     Assert(,¨'159')≡getvals r.FirstRow:
+     Assert 6=≢⊃d:
+     Assert h≡2 3⍴(3⍴⊂'Column'),'One' 'Two' 'Three':
+     f←GetTestFileFQP'SkipRowsNonSparse.xlsx'
+     p←##.Main.GetWorkbookInfo f
+     p.SkipBeforeHeader←2
+     p.HeaderRows←1
+     p.SkipBeforeData←3
+     r←p ##.Main.GetSheetData'Sheet1'
+     h d←r.Header r.Data
+     Assert(,¨'123')≡getvals r.FirstRow:
+     Assert h≡1 3⍴'Col1' 'Col2' 'Col3':
+     Assert 4=≢⊃d:
+     0
+ }

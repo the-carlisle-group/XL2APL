@@ -1,0 +1,6 @@
+ ProcessColumnIndices←{
+     c←⍵
+     u←{⍵[⍋⍵]}∪c                    ⍝ Unique column numbers in order
+     i←u⍳c                          ⍝ Normalized/relative
+     (≢u)i u
+ }

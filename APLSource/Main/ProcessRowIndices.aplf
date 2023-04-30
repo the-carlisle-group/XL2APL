@@ -1,0 +1,10 @@
+ ProcessRowIndices←{
+     p r←⍺ ⍵
+     i←r-1+p.PreviousHighRow
+     u←∪r
+     h←⌈/u
+     n←h-p.PreviousHighRow
+     p.RowNumbers,←⊂u
+     p.PreviousHighRow←h
+     n i
+ }

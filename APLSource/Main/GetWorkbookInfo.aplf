@@ -28,8 +28,9 @@
      p.CompressedLengths←Convert.ToDouble¨se.CompressedLength
      p.BlockSize←2*23
      p.HeaderRows←1
-     p.FooterRows←0
      p.RowsToRead←0
+     p.SkipBeforeHeader←0
+     p.SkipBeforeData←0
      _←Dispose a
      p
  }

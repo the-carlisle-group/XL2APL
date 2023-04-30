@@ -1,0 +1,24 @@
+ ProcessCells←{
+     ⍝ ⍺ ←→ Sheet Space
+     ⍝ ⍵ ←→ ⎕XML matrix
+     ⍝ ← ←→ Cell row, column, values
+     p m←⍺ ⍵
+     vi←⍸m[;1]∊,¨'v' 'is'
+     ci←vi{⍵[⍵⍸⍺]}⍸m[;1]∊⊂,'c'
+     v←m[vi;2]
+     ca←m[ci;3]
+     ai←(≢¨ca)/⍳≢ca
+     an av←↓⍉⊃⍪/ca
+     a←↑(an∊⊂,'r')/av
+     si←ai[⍸(an∊⊂,'t')∧av∊⊂,'s']
+     ss←p.WorkbookInfo.SharedStrings
+     v[si]←ss[1⊃⎕VFI,' ',↑v[si]]
+     is←ai/⍨(an∊⊂,'t')∧av∊⊂'inlineStr'
+     v[is]←GetInlineStrings m
+     r←1⊃⎕VFI' '@{⍵∊⎕A},a
+     c←¯1+26⊥⍉{⍵{(+/⍵)⌽⍵×⍺}⍵≠27}1+⎕A⍳a
+     ⍝ Improvement:
+     ⍝ This won't work on tests! Investigate!
+     ⍝ ci←¯1+26⊥⍉{⍵⌽⍨+/0≠⍵}(' ',⎕A)⍳a ⍝ Put this in!
+     r c v
+ }

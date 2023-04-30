@@ -14,8 +14,10 @@
      p.BlockSize←⍺.BlockSize
      p.Buffer←CreateBuffer p.BlockSize
      p.FirstRow←⍬
+     p.RowNumbers←⍬
      p.Fragment←''
      p.Block←0
+     p.PreviousHighRow←0
      p.EndOfRows←0
      p.(Data Rows Columns Header)←⊂⍬
      _←ProcessBlocks p
