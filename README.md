@@ -45,19 +45,19 @@ properties:
 Various properties may be specified in the left argument namespace of `GetSheetData` to control
 how XL2APL reads and organizes the sheet data:
 
-**HeaderRows** Defaults to 1. The number of rows that comprise the header.
+`HeaderRows` The number of rows that comprise the header. Defaults to 1.
 
-**SkipBeforeHeader** Defaults to 0. The number or rows to skip before reading the header.
+`SkipBeforeHeader`  The number or rows to skip before reading the header. Defaults to 0.
 
-**SkipBeforeData** Defaults oto 0. The number of rows to skip before reading the main data. 
+`SkipBeforeData` The number of rows to skip before reading the main data. Defaults to 0. 
 
-**RowLimit** The maximum number of data rows to read. Defaults to 0 indicating no maximum, or
+`RowLimit` The maximum number of data rows to read. Defaults to 0 indicating no maximum, or
 read all rows. Note the actual number of rows read may be more than the value of the property. 
 
-**OmitEmptyRows**  Defaults to 0. Set to 1 to omit empty rows. Note that setting this to 1 may
+`OmitEmptyRows`  Set to 1 to omit empty rows. Defaults to 0. Note that setting this to 1 may
 affect how the above 4 properties are processed. For example, SkipBeforeHeader will skip that many
 non-empty rows.
 
-**OmitEmptyColumns** Defaults to 0. Set to 1 to omit empty columns.
+`OmitEmptyColumns` Set to 1 to omit empty columns. Defaults to 0.
 
-**BlockSize** The number of bytes to read in each block. Defaults to 2*?.
+**BlockSize** The number of bytes to read in each block. Defaults to `2*23` (8 MB).
