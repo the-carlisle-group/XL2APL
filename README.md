@@ -60,4 +60,4 @@ non-empty rows.
 
 `OmitEmptyColumns` Set to 1 to omit empty columns. Defaults to 0.
 
-**BlockSize** The number of bytes to read in each block. Defaults to `2*23` (8 MB).
+`BlockSize` The number of bytes to read in each block. Defaults to `2*23` (8 MB).
