@@ -1,0 +1,4 @@
+ GetRowValues←{
+   ⍝ Get row values from "FirstRow" XML mat
+     ⍵[;2]/⍨⍵[;1]∊⊂,'v'
+ }

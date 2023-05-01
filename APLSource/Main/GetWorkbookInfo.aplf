@@ -31,6 +31,8 @@
      p.RowsToRead←0
      p.SkipBeforeHeader←0
      p.SkipBeforeData←0
+     p.OmitEmptyRows←0
+     p.OmitEmptyColumns←0
      _←Dispose a
      p
  }

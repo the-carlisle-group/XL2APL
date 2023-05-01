@@ -1,0 +1,10 @@
+ AssembleData←{
+     p←⍵
+     ⍬≡p.Data:⍬
+     u←{⍵[⍋⍵]}∪∊p.Columns
+     p.UniqueColumns←u
+     d←p AssembleColumn¨u
+     p.WorkbookInfo.OmitEmptyColumns:d
+     e←1,u∊⍨⍳1+⌈/u
+     1↓e\d,⍨⊂0/⊃d
+ }

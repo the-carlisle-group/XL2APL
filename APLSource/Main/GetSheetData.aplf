@@ -22,10 +22,8 @@
      p.(Data Rows Columns Header)←⊂⍬
      _←ProcessBlocks p
      _←Dispose¨z p.File
-     p.UniqueColumns←{⍵[⍋⍵]}∪∊p.Columns
+     p.Data←AssembleData p
+     p.Header←AssembleHeader p
      _←GetColumnFormatCodes p
-     1=p.Block:p
-     p.Data←p AssembleColumn¨p.UniqueColumns
-     p.Header←(p.UniqueColumns∊↑p.Columns)\p.Header
      p
  }

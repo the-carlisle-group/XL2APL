@@ -1,7 +1,8 @@
  ProcessRowIndices←{
      p r←⍺ ⍵
-     i←r-1+p.PreviousHighRow
      u←∪r
+     p.WorkbookInfo.OmitEmptyRows:(≢u)(u⍳r)
+     i←r-1+p.PreviousHighRow
      h←⌈/u
      n←h-p.PreviousHighRow
      p.RowNumbers,←⊂u

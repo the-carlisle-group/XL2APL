@@ -3,7 +3,27 @@
      p←##.Main.GetWorkbookInfo fn
      r←p ##.Main.GetSheetData'Sheet1'
      h d←r.Header r.Data
-     Assert 4=≢d:
-     Assert 4=≢↑d:
+     Assert 5=≢d:
+     Assert 6=≢⊃d:
+     Assert'11' '12' '13' '15'≡GetRowValues r.FirstRow:
+     p.OmitEmptyRows←1
+     r←p ##.Main.GetSheetData'Sheet1'
+     h d←r.Header r.Data
+     Assert 5=≢d:
+     Assert 4=≢⊃d:
+     Assert'11' '12' '13' '15'≡GetRowValues r.FirstRow:
+     fn←GetTestFileFQP'EmptyRows2.xlsx'
+     p←##.Main.GetWorkbookInfo fn
+     r←p ##.Main.GetSheetData'Sheet1'
+     h d←r.Header r.Data
+     Assert 3=≢d:
+     Assert 9=≢⊃d:
+     Assert'11' '12' '13'≡GetRowValues r.FirstRow:
+     p.OmitEmptyRows←1
+     r←p ##.Main.GetSheetData'Sheet1'
+     h d←r.Header r.Data
+     Assert 3=≢d:
+     Assert 5=≢⊃d:
+     Assert'11' '12' '13'≡GetRowValues r.FirstRow:
      0
  }

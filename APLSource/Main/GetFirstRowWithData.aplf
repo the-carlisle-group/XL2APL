@@ -5,6 +5,7 @@
      p m←⍺ ⍵
      i←p.WorkbookInfo
      n←+/i.(SkipBeforeHeader SkipBeforeData HeaderRows)
+     i.OmitEmptyRows:m⌿⍨(n+1)=+\0=m[;0]
      r←⊃p.RowNumbers
      l←1+r⍸n
      l=≢r:0⌿m
