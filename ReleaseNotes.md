@@ -1,4 +1,18 @@
-# XL2APL Release 0.0.19                    
+# XL2APL Release 0.0.20                    
+1. Update README.md
+2. Update README.md
+3. Update README.md
+4. Update README.md
+5. Add properties for omitting missing rows and columns
+6. Handle undefined rows
+7. Fixed missing guard in Tests.TestClientTest1
+8. Update for new .NET/Core (#17)
+9. More fun
+10. A fun little improvement
+11. Add a test
+12. Revamp tests to use Provanto framework
+
+# XL2APL Release 0.0.19 2023-01-10 11:15:47
 1. Fix Issue #16 (IsXLSXFile does not work if file is open)
 
 # XL2APL Release 0.0.18 2022-04-01 12:51:03
