@@ -15,7 +15,11 @@
      ic←t∊⊂,'s'
      id←∨⌿∨/¨'dd' 'yy' 'mmm'∘.⍷fc
      ct←'Numeric' 'Date' 'Char'[2⌊2⊥↑ic id]
-     i←ci⍳⍵.UniqueColumns
+
+     ⍝ Actual final columns
+     u←⍵.UniqueColumns
+     ac←⍵.WorkbookInfo.OmitEmptyColumns⊃(⍳1+⌈/u)u
+     i←ci⍳ac    ⍝ ci⍳⍵.UniqueColumns
      ⍵.FormatCode←(fc,⊂'General')[i]
      ⍵.ColumnType←(ct,⊂'Char')[i]
      0

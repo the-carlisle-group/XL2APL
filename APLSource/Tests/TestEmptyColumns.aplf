@@ -4,9 +4,13 @@
      r←p ##.Main.GetSheetData'Sheet1'
      h d←r.Header r.Data
      Assert(,¨'ColumnA' '' 'ColumnC' '' 'ColumnE')≡,h:
+     Assert r.ColumnType≡'Numeric' 'Char' 'Numeric' 'Char' 'Numeric':
+     Assert r.FormatCode≡5⍴⊂'General':
      p.OmitEmptyColumns←1
      r←p ##.Main.GetSheetData'Sheet1'
      h d←r.Header r.Data
      Assert'ColumnA' 'ColumnC' 'ColumnE'≡,h:
+     Assert r.ColumnType≡3⍴⊂'Numeric':
+     Assert r.FormatCode≡3⍴⊂'General':
      0
  }
