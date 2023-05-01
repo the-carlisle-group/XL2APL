@@ -1,8 +1,8 @@
 # XL2APL
-Fast, light-weight, cross-platform package to import Excel data into Dyalog APL.
+XL2APL is a light-weight, cross-platform package to import data from Excel .xlsx files into Dyalog APL.
 This package does NOT require or make use of the Microsoft Open XML SDK.
 
-The general idea is to extract and transform the cell data of a sheet in the fastest most efficient way possible,
+The aim is to extract and transform the cell data of a worksheet in the fastest most efficient way possible,
 providing it to the APL programmer as an inverted table, a vector of character matrices, one item for each column. 
 Because any Excel cell can contain any type, or no type at all, it is left up to the consuming package to potentially 
 convert columns to numeric or date types. However, likely column types are provided based on analyis of the first
