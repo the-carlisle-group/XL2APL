@@ -1,0 +1,12 @@
+ GetColumnNames←{
+     p←⍵
+     0=≢p.Data:''
+     b←p.WorkbookInfo.OmitEmptyColumns
+     u←p.UniqueColumns
+     c←b⊃(⍳1+⌈/u)u
+     ⍬≡p.Header:ColumnLookup c
+     n←,⌿p.Header
+     i←⍸n∊⊂''
+     n[i]←ColumnLookup c[i]
+     n
+ }

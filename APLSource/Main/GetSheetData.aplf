@@ -24,6 +24,7 @@
      _←Dispose¨z p.File
      p.Data←AssembleData p
      p.Header←AssembleHeader p
+     p.ColumnName←GetColumnNames p
      _←GetColumnFormatCodes p
      p
  }

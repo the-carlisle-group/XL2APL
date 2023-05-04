@@ -1,0 +1,7 @@
+ ColumnLookup←{
+     ⍝ ⍵ ←→ Column Index or Name
+     ⍝ ← ←→ Column Name or Index
+     ⍺←⊃,/,¨∘.,\3⍴⊂,¨⎕A
+     2=≡⍵:⍺⍳⍵
+     ⍺[⍵]
+ }
