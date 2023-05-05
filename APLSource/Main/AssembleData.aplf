@@ -2,9 +2,12 @@
      p←⍵
      ⍬≡p.Data:⍬
      u←{⍵[⍋⍵]}∪∊p.Columns
+     o←⍵.WorkbookInfo.OmitEmptyColumns
+     a←o⊃(⍳1+⌈/u)u
      p.UniqueColumns←u
+     p.AllColumns←a
      d←p AssembleColumn¨u
-     p.WorkbookInfo.OmitEmptyColumns:d
+     o:d
      e←1,u∊⍨⍳1+⌈/u
      1↓e\d,⍨⊂0/⊃d
  }

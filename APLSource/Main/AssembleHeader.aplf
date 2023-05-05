@@ -1,9 +1,7 @@
  AssembleHeader←{
      p←⍵
      ⍬≡p.Header:⍬
-     u←p.UniqueColumns
-     b←p.WorkbookInfo.OmitEmptyColumns
-     c←b⊃(⍳1+⌈/u)u
+     c←p.AllColumns
      h←0 1↓(1,c∊⊃p.Columns)\(⊂''),p.Header
      h
  }
