@@ -1,4 +1,10 @@
-# XL2APL Release 0.0.20                    
+# XL2APL Release 0.0.21                    
+1. Cleanup
+2. Cleanup and refactor
+3. Add ColumnName, processed header, to result of GetSheetData
+4. Fix issue #18
+
+# XL2APL Release 0.0.20 2023-04-30 21:08:48
 1. Update README.md
 2. Update README.md
 3. Update README.md
