@@ -7,7 +7,5 @@
      p.UniqueColumns←u
      p.AllColumns←a
      d←p AssembleColumn¨u
-     o:d
-     e←1,u∊⍨⍳1+⌈/u
-     1↓e\d,⍨⊂0/⊃d
+     1↓(1,a∊u)\d,⍨⊂0/⊃d
  }
