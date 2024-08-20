@@ -2,6 +2,7 @@
      p←⍺
      m←⎕XML ⍵
      (r c v)←p ProcessCells m
+     0∊⍴r:⍬ ⍬
      (nr ri)←p ProcessRowIndices r
      (nc ci uc)←p ProcessColumnIndices c
      d←nr nc⍴⊂''

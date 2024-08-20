@@ -4,6 +4,7 @@
      ⍝ ← ←→ Cell row, column, values
      p m←⍺ ⍵
      vi←⍸m[;1]∊,¨'v' 'is'
+     0∊⍴vi:⍬ ⍬ ⍬
      ci←vi{⍵[⍵⍸⍺]}⍸m[;1]∊⊂,'c'
      v←m[vi;2]
      ca←m[ci;3]

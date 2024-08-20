@@ -2,9 +2,10 @@
      b←ReadRowBlock ⍵
      0=≢b:0
      i d←⍵ ProcessBlock b
+     ne←~0∊⍴i
      ⍵.Data,←d
-     ⍵.Columns,←⊂i
-     ⍵.Rows,←≢⊃d
+     ⍵.Columns,←ne/⊂i
+     ⍵.Rows,←ne/≢⊃d
      wi←⍵.WorkbookInfo
      wi.RowsProcessed←+/⍵.Rows
      r←⍵.WorkbookInfo.RowsToRead
