@@ -1,4 +1,7 @@
-# XL2APL Release 0.0.21                    
+# XL2APL Release 0.0.22                    
+1. Fix issue with empty block reads
+
+# XL2APL Release 0.0.21 2023-05-07 12:17:28
 1. Cleanup
 2. Cleanup and refactor
 3. Add ColumnName, processed header, to result of GetSheetData
