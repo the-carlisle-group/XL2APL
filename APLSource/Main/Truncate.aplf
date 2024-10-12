@@ -1,0 +1,6 @@
+ Truncate←{
+     ⍬≡⍵:⍵
+     ⍺.RowsToRead=0:⍵
+     ⍺.RowsToRead≥⍺.RowsProcessed:⍵
+     ⍺.RowsToRead↑¨⍵
+ }

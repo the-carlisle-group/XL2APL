@@ -1,0 +1,9 @@
+ TestRowsToRead←{
+     f←GetTestFileFQP'Baseball.xlsx'
+     p←##.Main.GetWorkbookInfo f
+     p.RowsToRead←1000
+     r←p ##.Main.GetSheetData'People'
+     h d←r.Header r.Data
+     Assert 1000=≢0⊃d:
+     0
+ }

@@ -22,7 +22,7 @@
      p.(Data Rows Columns Header)←⊂⍬
      _←ProcessBlocks p
      _←Dispose¨z p.File
-     p.Data←AssembleData p
+     p.Data←⍺ Truncate AssembleData p
      p.Header←AssembleHeader p
      p.ColumnName←GetColumnNames p
      _←GetColumnFormatCodes p
