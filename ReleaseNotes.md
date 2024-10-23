@@ -1,4 +1,7 @@
-# XL2APL Release 0.0.22                    
+# XL2APL Release 0.0.23                    
+1. Apply RowsToRead parameter strictly so exact number of rows returned
+
+# XL2APL Release 0.0.22 2024-08-20 11:11:32
 1. Fix issue with empty block reads
 
 # XL2APL Release 0.0.21 2023-05-07 12:17:28
