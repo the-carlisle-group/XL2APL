@@ -1,0 +1,24 @@
+ GetNamedRange←{
+     ⍝ ⍵ ←→ Range Name [Sheet Name]
+     ⍝ ⍺ ←→ Worksheets ←→ result of GetSheetData or GetEntireWorkbook
+     ⍝ Sheet name only needs to be provided if the range name
+     ⍝ is worksheet scoped rather than globally scoped.
+     (rn sn)←2↑(⊆⍵),⊂''
+     s←,⍺
+     i←⊃s.WorkbookInfo
+     b←⊃¨sn∘⍷¨i.DefinedValues
+     (dn dv)←b∘/¨i.(DefinedNames DefinedValues)
+     ~(⊂rn)∊dn:'Name not found'⎕SIGNAL 3
+     v←dv⊃⍨dn⍳⊂rn
+     ~(∧/'!$'∊v)∧~∧/'()'∊v:'Name does not define a range'⎕SIGNAL 3
+     n a←(~⌽<\⌽v='!')⊆v
+     c r←↓⍉2 2⍴a⊆⍨~a∊'$:'
+     k←{(⊃⍵)+⍳1+-/⌽⍵}
+     ci←k{26⊥⎕A⍳⍵}¨c
+     ri←k ¯1+1⊃⎕VFI∊' ',¨r
+     ~(⊂n)∊s.SheetName:⎕'Worksheet not found'⎕SIGNAL 3
+     ws←s⊃⍨s.SheetName⍳⊂n
+     ~ws.HaveEntireSheet:'HeaderRows (or other) not 0'⎕SIGNAL 3
+     ntbs←{(+/∨\' '≠⌽⍵)↑¨↓⍵}
+     ⍉↑ntbs¨{⍵[ri;]}¨ws.Data[ci]
+ }

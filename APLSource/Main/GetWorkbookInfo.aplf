@@ -17,8 +17,8 @@
      fn←'xl/'∘,¨rt[ri⍳id]
      p.SheetFileNames←fn
      k←⍸m[;1]∊⊂'definedName'
-     p.RangeNames←'name'get m[k;3]
-     p.RangeAddresses←m[k;2]
+     p.DefinedNames←'name'get m[k;3]
+     p.DefinedValues←m[k;2]
      _←a GetFormatCodes p
      d←('/'∊⍕⌷a.Entries)⊃'\/'
      f←d@('/'∘=)

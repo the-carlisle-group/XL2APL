@@ -26,5 +26,6 @@
      p.Header←AssembleHeader p
      p.ColumnName←GetColumnNames p
      _←GetColumnFormatCodes p
+     p.HaveEntireSheet←∧/0=⍺.(HeaderRows RowsToRead SkipBeforeHeader SkipBeforeData OmitEmptyRows OmitEmptyColumns)
      p
  }
