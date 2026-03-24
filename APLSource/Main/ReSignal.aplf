@@ -1,0 +1,4 @@
+ f←ReSignal
+ f←⎕SIGNAL{
+     ⊂('EN'⍵.EN)('Message'⍵.Message)
+ }

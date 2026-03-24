@@ -1,0 +1,3 @@
+ Signal←{
+     ⎕SIGNAL⊂('EN'⍺)('Message'⍵)
+ }

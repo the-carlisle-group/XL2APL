@@ -23,5 +23,11 @@
      Assert v≡3 3⍴p'This is Local and can be on different sheets':
      v←ws f'LocalScopeRange' 'Sheet2'
      Assert v≡3 3⍴p'This is the same named range on another sheet':
+     Assert 500=ws f Try'NoSuchName':
+     Assert 501=ws f Try'NotaRange':
+     Assert 502=(1⊃ws)f Try'MyRange1':
+     wi.HeaderRows←2
+     ws←wi ##.Main.GetSheetData¨wi.SheetNames
+     Assert 503=ws f Try'MyRange1':
      0
  }
