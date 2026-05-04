@@ -1,4 +1,8 @@
-# XL2APL Release 0.0.23                    
+# XL2APL Release 0.0.24                    
+1. Enhance GetNamedRange test
+2. Add GetNamedRange function
+
+# XL2APL Release 0.0.23 2024-10-23 07:25:47
 1. Apply RowsToRead parameter strictly so exact number of rows returned
 
 # XL2APL Release 0.0.22 2024-08-20 11:11:32
