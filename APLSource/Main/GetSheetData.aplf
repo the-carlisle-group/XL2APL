@@ -3,13 +3,13 @@
      ⍝ ⍵ ←→ sheet name
      ⍺.RowsProcessed←0
      sn←⍵{0=≢⍺:⊃⍵ ⋄ ⍺}⍺.SheetNames
-     i←⍺.SheetNames⍳⊂sn
+     i←⍺.SheetNames⍳⍥⎕C⊂sn
      f←i⊃⍺.SheetFileNames
      z←OpenExcelFile ⍺.FileName
      _←⍺ GetSharedStrings z
      p←⎕NS''
      p.WorkbookInfo←⍺
-     p.SheetName←sn
+     p.SheetName←i⊃⍺.SheetNames
      p.File←z OpenZipFile f
      p.BlockSize←⍺.BlockSize
      p.Buffer←CreateBuffer p.BlockSize

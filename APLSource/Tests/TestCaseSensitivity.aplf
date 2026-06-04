@@ -1,0 +1,13 @@
+ TestCaseSensitivity←{
+     fn←GetTestFileFQP'NamedRanges.xlsx'
+     wi←##.Main.GetWorkbookInfo fn
+     wi.HeaderRows←0
+     ws←wi ##.Main.GetSheetData¨wi.SheetNames
+     v←ws ##.Main.GetNamedRange'MyRange1'
+     Assert v≡3 3⍴⍕¨1+⍳9:
+     v←ws ##.Main.GetNamedRange'myrange1'
+     Assert v≡3 3⍴⍕¨1+⍳9:
+     Assert'Sheet1'≡{⍵.SheetName}wi ##.Main.GetSheetData'Sheet1':
+     Assert'Sheet1'≡{⍵.SheetName}wi ##.Main.GetSheetData'sheet1':
+     0
+ }

@@ -7,18 +7,19 @@
      (rn sn)←2↑(⊆⍵),⊂''
      s←,⍺
      i←⊃s.WorkbookInfo
-     b←⊃¨sn∘⍷¨i.DefinedValues
+     b←∨/¨2↑¨sn∘⍷¨i.DefinedValues
      (dn dv)←b∘/¨i.(DefinedNames DefinedValues)
-     ~(⊂rn)∊dn:500 Signal'Name not found'
-     v←dv⊃⍨dn⍳⊂rn
+     ~(⊂rn)∊⍥⎕C dn:500 Signal'Name not found'
+     v←dv⊃⍨dn⍳⍥⎕C⊂rn
      ~(∧/'!$'∊v)∧~∧/'()'∊v:501 Signal'Name does not define a range'
      n a←(~⌽<\⌽v='!')⊆v
+     n←n~''''
      c r←↓⍉2 2⍴a⊆⍨~a∊'$:'
      k←{(⊃⍵)+⍳1+-/⌽⍵}
      ci←k{26⊥⎕A⍳⍵}¨c
      ri←k ¯1+1⊃⎕VFI∊' ',¨r
-     ~(⊂n)∊s.SheetName:502 Signal'Worksheet not found'
-     ws←s⊃⍨s.SheetName⍳⊂n
+     ~(⊂n)∊⍥⎕C s.SheetName:502 Signal'Worksheet not found'
+     ws←s⊃⍨s.SheetName⍳⍥⎕C⊂n
      ~ws.HaveEntireSheet:503 Signal'HeaderRows (or other) not 0'
      ntbs←{(+/∨\' '≠⌽⍵)↑¨↓⍵}
      ⍉↑ntbs¨{⍵[ri;]}¨ws.Data[ci]

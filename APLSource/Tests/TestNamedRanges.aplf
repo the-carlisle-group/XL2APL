@@ -23,6 +23,10 @@
      Assert v≡3 3⍴p'This is Local and can be on different sheets':
      v←ws f'LocalScopeRange' 'Sheet2'
      Assert v≡3 3⍴p'This is the same named range on another sheet':
+     v←ws f'SpaceWBScope'
+     Assert v≡,¨2 3⍴'abcdef':
+     v←ws f'SpaceWSScope' 'Name With Spaces'
+     Assert v≡,¨2 2⍴'1234':
      Assert 500=ws f Try'NoSuchName':
      Assert 501=ws f Try'NotaRange':
      Assert 502=(1⊃ws)f Try'MyRange1':
