@@ -1,4 +1,7 @@
-# XL2APL Release 0.0.24                    
+# XL2APL Release 0.0.25                    
+1. Fix issues #22 and #23
+
+# XL2APL Release 0.0.24 2026-05-04 07:06:58
 1. Enhance GetNamedRange test
 2. Add GetNamedRange function
 
